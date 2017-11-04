@@ -1,0 +1,27 @@
+nav {
+  background-color: white;
+}
+
+.brand-logo {
+  color: black;
+  font-weight: 600pt;
+  padding-left: 5%;
+
+  transition: color .25s ease-in-out;
+  -moz-transition: color .25s ease-in-out;
+  -webkit-transition: color .25s ease-in-out;
+}
+
+li > a {
+  color: black;
+}
+
+li > a:hover {
+  color: #FF4081
+}
+
+.brand-logo:hover {
+  color: #FF4081;
+
+}
+

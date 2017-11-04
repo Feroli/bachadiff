@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.accent {
+  background-color: #FF4081 !important;
+}
+
+.primary {
+  background-color: white;
+}
+
+.ligh-primary {
+ background-color: #fefcfb;
+}
+
+
+body {
+  background-color: #fefcfb;
+}

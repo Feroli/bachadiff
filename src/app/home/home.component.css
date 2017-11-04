@@ -1,0 +1,13 @@
+div {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.question {
+  font-size: 70px;
+}
+
+.answer {
+  color: rgb(117, 117, 117);
+  font-size: 34px;
+}
