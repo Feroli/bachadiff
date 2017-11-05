@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod && cp node-server/* dist",
+    "postinstall": "npm install && ng build --aot -prod && cp node-server/* dist",
     "build:nodeserver": "ng build && cp node-server/* dist",
     "build:nodeserver-prod": "ng build -prod && cp node-server/* dist",
     "serve-build": "npm run build:nodeserver && nodemon dist/server.js",
