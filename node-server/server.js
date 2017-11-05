@@ -11,7 +11,7 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', (process.env.PORT || 3000));
-app.use(express.static(path.join(rootPath + '/../dist/')));
+app.use(express.static(path.join(rootPath, '/../dist/')));
 app.get('/', function (req, res) {
     res.sendFile(path.join('dist/index.html'));
 });
