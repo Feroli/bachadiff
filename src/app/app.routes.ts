@@ -7,30 +7,15 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
 
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'classes',
-    component: ClassesComponent
-  },
-  {
-    path: 'events',
-    component: EventsComponent
-  },
-  {
-    path: 'contactUs',
-    component: ContactUsComponent
-  },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'classes', component: ClassesComponent },
+  { path: 'events', component: EventsComponent },
+  { path: 'contactUs', component: ContactUsComponent },
 
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
