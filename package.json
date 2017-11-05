@@ -10,16 +10,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "npm install && ng build --aot -prod && cp node-server/* dist",
     "build:nodeserver": "ng build && cp node-server/* dist",
-    "build:nodeserver-prod": "ng build -prod && cp node-server/* dist",
+    "build:nodeserver-prod": "ng build -prod --aot && cp node-server/* dist",
     "serve-build": "npm run build:nodeserver && nodemon dist/server.js",
     "serve-build-node": "npm run build:nodeserver && node dist/server.js",
     "serve-build-prod": "npm run build:nodeserver-prod && nodemon dist/server.js"
   },
   "engines": {
-    "node": "~7.7.3",
-    "npm": "~4.1.2"
+    "node": "7.7.3",
+    "npm": "4.1.2"
   },
   "private": true,
   "dependencies": {
