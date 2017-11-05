@@ -3,7 +3,7 @@
 let express = require('express');
 // let staticRoot = __dirname;
 let path = require('path');
-let rootPath = __dirname;
+let rootPath = path.normalize(__dirname + '/../');
 // for file uploads
 let formidable = require('formidable');
 let bodyParser = require('body-parser');
@@ -16,19 +16,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.set('port', (process.env.PORT || 3000));
-app.use(express.static(path.join(rootPath, '/../dist/')));
+app.use(express.static(path.join(rootPath, '/dist')));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join('dist/index.html'));
+app.get('*', function(req, res) {
+    res.sendFile(rootPath + 'dist/index.html');
 });
-
-// app.use(express.static(rootPath));
-
-// app.get('/', function(req, res) {
-
-//     console.log(path.join(rootPath + '/../dist/index.html'))
-//     res.sendFile(path.join(rootPath + '/../dist/index.html'));
-// });
 
 
 app.use(function(req, res, next){
