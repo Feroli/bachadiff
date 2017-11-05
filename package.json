@@ -17,7 +17,12 @@
     "serve-build-node": "npm run build:nodeserver && node dist/server.js",
     "serve-build-prod": "npm run build:nodeserver-prod && nodemon dist/server.js"
   },
-  "private": true,
+
+  "engines": {
+    "node": "~7.7.3",
+    "npm": "~4.1.2"
+  },
+  // "private": true,
   "dependencies": {
     "@angular/cli": "1.4.9",
     "@angular/compiler-cli": "^4.2.4",
@@ -37,6 +42,7 @@
     "formidable": "^1.1.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14",
+    "ts-node": "~3.2.0",
     "typescript": "~2.3.3"
 
   },
