@@ -2,7 +2,7 @@
   "name": "bachadiff",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "server.js",
+  "main": "/node-server/server.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +10,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "cd bachadiff && npm install",
     "postinstall": "ng build --aot -prod && cp node-server/* dist",
     "build:nodeserver": "ng build && cp node-server/* dist",
     "build:nodeserver-prod": "ng build -prod && cp node-server/* dist",
