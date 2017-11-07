@@ -11,7 +11,19 @@
  background-color: #fefcfb;
 }
 
+.active {
+  color: #FF4081 !important;
+
+}
+
 
 body {
   background-color: #fefcfb;
 }
+
+hr {
+  width: 85%;
+  border: 1px solid #d81b60;
+  background-color: #d81b60;
+}
+
