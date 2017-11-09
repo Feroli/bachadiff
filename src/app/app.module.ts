@@ -11,7 +11,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { EventsComponent } from './events/events.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
   ],
   imports: [
     BrowserModule,
-    appRoutes
+    appRoutes,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC90CDCThfCncC8hQS21pIXzI7Znn65RgQ'
+    })
 
   ],
   providers: [],

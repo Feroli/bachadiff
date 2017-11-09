@@ -1,17 +1,46 @@
 <div class="center-align">
-    <h2 class="question">Class Structure</h2>
-    <hr>
+  <h2 class="question">Class Structure</h2>
+  <hr>
+
+  <div class="container">
 
     <div class="row">
       <div class="col s12 m6">
-        <img class="generic_poster" src="../assets/genericPoster.jpg" alt="">
+        <img class="generic_poster z-depth-1"
+            [ngClass]="hover_poster"
+            src="../assets/genericPoster.jpg"
+            (mouseenter)="mouseEnter($event)"
+            (mouseleave)="mouseLeave($event)" alt="">
       </div>
       <div class="col s12 m6">
-        <p>Details of the class</p>
-      </div>
+        <h5 class="setup_header">Set Up</h5>
+        <hr class="classes_hr">
 
+        <div class="row class_setup">
+          <div class="col s6">
+            <p>7pm Register</p>
+            <p>7:15pm Class Start</p>
+            <p>9pm Social Starts!!</p>
+          </div>
+          <div class="col s6">
+            <p>£7 (£5 NUS) 1 Class</p>
+            <p>£8 (£7 NUS) 2 Classes</p>
+            <p>Free Social until late</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="s12">
-        <p>Map</p>
+      <div class="location_text">
+        <h5>Find Us</h5>
+        <p>Oneill's 85-87, St Mary street</p>
       </div>
+
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+
+  </div>
+
 </div>

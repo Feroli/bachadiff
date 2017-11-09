@@ -1,0 +1,17 @@
+.card-image {
+  /* width: 50%;
+  height: 50%; */
+}
+
+.card {
+  width: 50%;
+  height: 50%;
+}
+
+p {
+  color: gray
+}
+
+a {
+  color: #FF4081 !important;
+}

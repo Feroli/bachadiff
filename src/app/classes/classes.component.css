@@ -1,4 +1,39 @@
 .generic_poster {
   height: 25em;
-  width: 20em;
+  width: 19em;
+  border: 3px solid #f2f2f2;
+  transition: all 0.3s ease-in;
+
+}
+.hover_poster {
+
+}
+
+.classes_hr {
+  width: 80%;
+  border: 1px solid #d81b60;
+  background-color: #d81b60;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.class_setup {
+text-align: left;
+margin-left: 10%;
+color: gray;
+}
+
+.setup_header {
+  /* text-align: left; */
+}
+
+.location_text {
+ display: inline-block;
+}
+
+
+agm-map {
+  height: 300px;
 }
