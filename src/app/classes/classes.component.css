@@ -1,7 +1,7 @@
 .generic_poster {
   height: 25em;
   width: 19em;
-  border: 3px solid #f2f2f2;
+  border: 8px solid #f2f2f2;
   transition: all 0.3s ease-in;
 
 }

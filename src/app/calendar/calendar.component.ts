@@ -1,7 +1,8 @@
 import {
   Component, OnInit, ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef
+  TemplateRef,
+  Input
 } from '@angular/core';
 
 import {
@@ -38,12 +39,12 @@ const colors: any = {
 
 
 @Component({
-  selector: 'app-events',
+  selector: 'app-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css']
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.css']
 })
-export class EventsComponent implements OnInit {
+export class CalendarComponent implements OnInit {
 
   constructor() {}
 
@@ -51,7 +52,7 @@ export class EventsComponent implements OnInit {
 
     view: string = 'month';
 
-    viewDate: Date = new Date();
+    @Input() viewDate: Date = new Date();
 
     modalData: {
       action: string;
@@ -74,9 +75,9 @@ export class EventsComponent implements OnInit {
       }
     ];
 
-    refresh: Subject<any> = new Subject();
+    @Input() refresh: Subject<any> = new Subject();
 
-    events: CalendarEvent[] = [
+    @Input() events: CalendarEvent[] = [
       {
         start: subDays(startOfDay(new Date()), 1),
         end: addDays(new Date(), 1),
@@ -110,10 +111,9 @@ export class EventsComponent implements OnInit {
       }
     ];
 
-    activeDayIsOpen: boolean = true;
+   @Input() activeDayIsOpen: boolean = true;
 
     dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-      console.log(date);
       if (isSameMonth(date, this.viewDate)) {
         if (
           (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||

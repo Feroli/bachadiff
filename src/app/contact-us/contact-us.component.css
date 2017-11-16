@@ -1,0 +1,33 @@
+button:hover {
+  background-color: #d81b60 !important;
+}
+
+.content {
+  margin-top: 5em;
+}
+
+.lnk {
+
+      transition: all 0.3s ease-in;
+      text-decoration:none;
+      color: black;
+      cursor: pointer;
+  }
+
+  .network_icon {
+    height: 1.5em;
+    width: 1.5em;
+    color: white;
+    margin-bottom: -5%;
+
+  }
+
+  .network_name {
+
+  }
+  .lnk:hover {
+    -webkit-stroke-width: 5.3px;
+      -webkit-stroke-color: #FFFFFF;
+      -webkit-fill-color: #FFFFFF;
+      color: #d81b60;
+  }

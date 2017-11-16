@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
+   bachaDiffFacebookUrl = "https://www.facebook.com/BachaDiff/";
+
   constructor() { }
+
+  goToBachaDiff() {
+    window.open(this.bachaDiffFacebookUrl, '_blank')
+
+  }
 
   ngOnInit() {
   }
