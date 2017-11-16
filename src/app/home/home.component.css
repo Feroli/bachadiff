@@ -3,6 +3,10 @@ div {
   margin-top: 10%;
 }
 
+#main-question {
+  font-size: 100px;
+}
+
 .question {
   font-size: 70px;
 }

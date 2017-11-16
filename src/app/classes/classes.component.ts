@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $;
 
 @Component({
   selector: 'app-classes',
@@ -15,14 +16,17 @@ export class ClassesComponent implements OnInit {
 
   constructor() { }
 
+  findUs() {
+    $('html, body').animate({
+      scrollTop: $('.location_text').offset().top
+    })
+  }
   mouseEnter($event: MouseEvent) {
-    console.log("mouse enter : " + $event.type);
     this.hover_poster = $event.type == 'mouseenter' ? 'hover_poster z-depth-5': '';
 
   }
 
   mouseLeave($event: MouseEvent) {
-    console.log("mouse leave : " + $event.type);
     this.hover_poster = $event.type == 'mouseleave' ? '': 'hover_poster z-depth-5';
 
   }

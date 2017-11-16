@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  question: string;
+  answer: string;
+
   constructor(private router: Router) { }
 
   goToAbout() {
@@ -15,6 +18,8 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.question = "What is Bachata?"
+    this.answer = "A social dance not a choreography"
   }
 
 }
