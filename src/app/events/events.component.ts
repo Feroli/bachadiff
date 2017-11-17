@@ -65,7 +65,7 @@ export class EventsComponent implements OnInit {
   modalBody: string;
 
   view: string = 'month';
-  private eventId: string;
+   eventId: string;
 
   viewDate: Date = new Date();
 
