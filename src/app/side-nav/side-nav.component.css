@@ -1,0 +1,7 @@
+.burger {
+  transition: color 0.1s ease-out;
+}
+
+.burger:hover {
+  color: #FF4081
+}

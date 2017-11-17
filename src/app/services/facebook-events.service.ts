@@ -15,7 +15,7 @@ export class FacebookEventsService {
 
   private facebookEventsUrl: string;
   private pageId = 'Bachadiff'
-  private accessToken = 'EAACEdEose0cBAIH64OH05ZACnlETOl0JXscbz10Q49ZALWJMvauTfVd0AlTLBH32PeZAyGYmEKE54xOZBZCd5tyFBSFO9zAf9TKl58iemSfk9qeJ6rb78ff6P5zt5X7ZArbL1kSGMqjRfIwMFmomOZAVbgrh0ZCCibsl3mSJfLDRt9MvUpNKGp8avkpXemOKylZBc06reWklkZCAZDZD';
+  private accessToken = 'EAACEdEose0cBABZBICieMuOG3v1K5ajYmFC9ny163JlvWTnKO8mPHXiGbBN6mIHFXkKMCPy1oENjsWGywlm8bH9zMUKedZCnhn8zeQtcgGBCG9tAuAjVP2BwGZC8EQyt2jipPnlQQMN1fodWHagk2zUnpZBC1hMmr4WcnBh0K7CgqTdCSwUIx2Vkev0iHnnSiu3UYOUaUQZDZD';
 
   private colors: any = {
     red: {

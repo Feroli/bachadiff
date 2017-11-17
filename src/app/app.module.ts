@@ -17,6 +17,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AgmCoreModule } from '@agm/core';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FacebookEventsService } from './services/facebook-events.service';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FacebookEventsService } from './services/facebook-events.service';
     ClassesComponent,
     EventsComponent,
     ContactUsComponent,
-    CalendarComponent
+    CalendarComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
