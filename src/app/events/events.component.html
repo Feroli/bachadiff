@@ -2,23 +2,6 @@
   <h2 class="question">BachaDiff Events</h2>
   <hr>
 
-  <!-- <div>
-    <div class="row">
-      <div class="col s12 m7">
-        <div class="card">
-          <div class="card-image">
-            <img src="../assets/name.jpg">
-          </div>
-          <div class="card-content">
-            <p>9/11/2017 | @Oneill's in Cardiff from 7:15pm</p>
-          </div>
-          <div class="card-action ">
-            <a href="https://www.facebook.com/events/137674936958873/" target="_blank">Go to Facebook Event</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <div class="row">
     <div class="calendar_control s12">
@@ -42,9 +25,24 @@
   </div>
   <br>
   <div class="center-align calendar">
-    <mwl-calendar-month-view [viewDate]="viewDate" [events]="events">
+
+    <mwl-calendar-month-view [viewDate]="viewDate"
+                             [events]="events"
+                             (dayClicked)="dayClicked($event.day)"
+                             [refresh]="refresh"
+                             (eventClicked)="handleEvent('Clicked', $event.event)">
     </mwl-calendar-month-view>
 
   </div>
 
 </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal1 modal-fixed-footer">
+      <div class="modal-content">
+        <h4 class="modal-header">{{modalHeader}}</h4>
+        <p class="modal-description" [innerHTML]="modalBody">
+      </div>
+      <div class="modal-footer">
+        <a href="https://www.facebook.com/{{eventId}}" target="_blank" class="modal-action modal-close waves-effect waves-green btn-flat ">See the event on facebook</a>
+      </div>
+    </div>
