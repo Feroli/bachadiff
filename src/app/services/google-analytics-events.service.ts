@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-
+declare var ga;
 @Injectable()
 export class GoogleAnalyticsEventsService {
 

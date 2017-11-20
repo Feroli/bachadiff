@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
-
+declare var ga;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
