@@ -18,6 +18,7 @@ import { AgmCoreModule } from '@agm/core';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FacebookEventsService } from './services/facebook-events.service';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     })
 
   ],
-  providers: [FacebookEventsService],
+  providers: [FacebookEventsService, GoogleAnalyticsEventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
