@@ -24,6 +24,7 @@ import {
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
 import { FacebookEventsService } from '../services/facebook-events.service';
+import { Meta, Title } from '@angular/platform-browser';
 
 declare var $: any
 
@@ -56,8 +57,14 @@ export class EventsComponent implements OnInit {
 
   events: CalendarEvent[];
 
-  constructor(private facebookEventService: FacebookEventsService, private zone: NgZone) {
+  constructor(private facebookEventService: FacebookEventsService, private zone: NgZone, meta: Meta, title: Title) {
+    title.setTitle('Bachadiff Events Page');
 
+        meta.addTags([
+          { name: 'author', content: 'Fenando Ania' },
+          { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
+          { name: 'description', content: 'Checkout the Bachadiff calendar for our latest events!' }
+        ]);
   }
 
 

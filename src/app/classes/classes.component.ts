@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 declare var $;
 
 @Component({
@@ -14,7 +15,15 @@ export class ClassesComponent implements OnInit {
 
   hover_poster = '';
 
-  constructor() { }
+  constructor(meta: Meta, title: Title) {
+    title.setTitle('Bachadiff Classes Page');
+
+    meta.addTags([
+      { name: 'author', content: 'Fenando Ania' },
+      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
+      { name: 'description', content: 'This page describes the structure of our classes and where we are!' }
+    ]);
+  }
 
   findUs() {
     $('html, body').animate({

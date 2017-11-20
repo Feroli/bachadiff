@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 declare var $;
 @Component({
   selector: 'app-about',
@@ -13,7 +14,15 @@ export class AboutComponent implements OnInit {
 
   visionText: string;
 
-  constructor() { }
+  constructor(meta: Meta, title: Title) {
+    title.setTitle('Bachadiff About Page');
+
+    meta.addTags([
+      { name: 'author', content: 'Fenando Ania' },
+      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
+      { name: 'description', content: 'Meet the bachadiff team and our vision!' }
+    ]);
+  }
 
   goToFernandoFacebook() {
     window.open(this.fernandoFacebookUrl, '_blank');
