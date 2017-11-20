@@ -5,11 +5,11 @@
 
   <div class="row">
     <div class="calendar_control s12">
-      <div class="btn grey lighten-5" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false">
+      <div class="btn grey lighten-5"  mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false">
         Previous
       </div>
 
-      <div class="btn grey lighten-5" mwlCalendarToday [(viewDate)]="viewDate">
+      <div class="btn grey lighten-5 " id="todayEvent" #todayEvent mwlCalendarToday [(viewDate)]="viewDate">
         Today
       </div>
       <div class="btn grey lighten-5" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false">

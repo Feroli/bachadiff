@@ -2,7 +2,9 @@ import {
   Component, OnInit, ChangeDetectionStrategy,
   ViewChild,
   TemplateRef,
-  NgZone
+  NgZone,
+  ElementRef,
+  Renderer2
 } from '@angular/core';
 
 import {
@@ -55,24 +57,18 @@ export class EventsComponent implements OnInit {
   events: CalendarEvent[];
 
   constructor(private facebookEventService: FacebookEventsService, private zone: NgZone) {
-    this.getEvents();
 
   }
 
-  @ViewChild('modalContent') modalContent: TemplateRef<any>;
+
 
   modalHeader: string;
   modalBody: string;
 
   view: string = 'month';
-   eventId: string;
+  eventId: string;
 
   viewDate: Date = new Date();
-
-  modalData: {
-    action: string;
-    event: CalendarEvent;
-  };
 
   actions: CalendarEventAction[] = [
     {
@@ -92,45 +88,6 @@ export class EventsComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-
-
-
-
-  // events: CalendarEvent[] = [
-  //   {
-  //     start: subDays(startOfDay(new Date()), 1),
-  //     end: addDays(new Date(), 1),
-  //     title: 'Bachadiff',
-  //     color: colors.red,
-  //     actions: this.actions
-  //   },
-  //   {
-  //     start: startOfDay(new Date()),
-  //     title: 'An event with no end date',
-  //     color: colors.yellow,
-  //     actions: this.actions
-  //   },
-  //   {
-  //     start: subDays(endOfMonth(new Date()), 3),
-  //     end: addDays(endOfMonth(new Date()), 3),
-  //     title: 'A long event that spans 2 months',
-  //     color: colors.blue
-  //   },
-  //   {
-  //     start: addHours(startOfDay(new Date()), 2),
-  //     end: new Date(),
-  //     title: 'A draggable and resizable event',
-  //     color: colors.yellow,
-  //     actions: this.actions,
-  //     resizable: {
-  //       beforeStart: true,
-  //       afterEnd: true
-  //     },
-  //     draggable: true
-  //   }
-  // ];
-
-  activeDayIsOpen: boolean = true;
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -155,7 +112,6 @@ export class EventsComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
     this.eventId = event.cssClass
     this.modalHeader = event.title;
 
@@ -192,11 +148,12 @@ export class EventsComponent implements OnInit {
 
   }
 
+
+
+
   ngOnInit() {
 
     this.getEvents();
-
-
     this.modalBody = `
       BachaDiff is proud to present you an International bachata teacher/performer & DJ Daniel Chong!!!
 
