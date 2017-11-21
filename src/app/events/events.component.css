@@ -30,6 +30,11 @@
 
 }
 
+.cal_text {
+  color: #d81b60;
+  font-weight: bold;
+}
+
 .btn:hover {
   background-color: #FF4081 !important;
   color: white;
