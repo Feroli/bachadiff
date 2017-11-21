@@ -60,11 +60,11 @@ export class EventsComponent implements OnInit {
   constructor(private facebookEventService: FacebookEventsService, private zone: NgZone, meta: Meta, title: Title) {
     title.setTitle('Bachadiff Events Page');
 
-        meta.addTags([
-          { name: 'author', content: 'Fenando Ania' },
-          { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
-          { name: 'description', content: 'Checkout the Bachadiff calendar for our latest events!' }
-        ]);
+    meta.addTags([
+      { name: 'author', content: 'Fenando Ania' },
+      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
+      { name: 'description', content: 'Checkout the Bachadiff calendar for our latest events!' }
+    ]);
   }
 
 
@@ -146,21 +146,17 @@ export class EventsComponent implements OnInit {
   getEvents() {
     this.facebookEventService.getBachaDiffFacebookEvents()
       .subscribe(calendarData => {
-        this.zone.run(() => {
-          this.events = calendarData;
+        this.events = calendarData;
+        this.refresh.next();
 
-        });
       });
-
 
   }
 
 
-
-
   ngOnInit() {
-
     this.getEvents();
+
     this.modalBody = `
       BachaDiff is proud to present you an International bachata teacher/performer & DJ Daniel Chong!!!
 
