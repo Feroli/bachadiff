@@ -44,8 +44,23 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.visionText = `
-    The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music, culture and flow of the dance and most importantly to produce high quality dancers through quality teaching and attention to the basics and fundamentals focusing on concepts of movement, in a super FUN learning environment.
-    `
+    The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music,
+    culture and flow of the dance and most importantly to produce high quality dancers through quality
+    teaching and attention to the basics and fundamentals focusing on concepts of movement, in a super FUN learning environment.
+
+    <h5>Daniel Chong</h5>
+
+    <p>An international dance teacher/performer who travels across Europe to teach bachata from beginner to advance levels. He is also
+    run the succesful monthly party BOS (Bachata On Saturday) in London, which accrues 400 - 500 people on the night.</p>
+
+    <h5>Fernando Ania</h5>
+
+    <p>Bachata dancer taught primarily by Daniel Chong and by other professional dancers.</p>
+
+    <h5>Jason DJ JAY</h5>
+
+    <p>Bachata dancer and DJ taught by teachers from all around the world.</p>
+    `;
   }
 
 }
