@@ -1,6 +1,6 @@
 <div class="center-align">
   <h2 class="question">Class Structure</h2>
-  <hr>
+  <hr class="">
 
   <div class="container">
 
@@ -16,7 +16,7 @@
       </div>
       <div class="col s12 m6">
         <h5 class="setup_header">Set Up</h5>
-        <hr class="classes_hr">
+        <hr class="classes_hr z-depth-1">
 
         <div class="row class_setup">
           <div class="col s6">
@@ -43,9 +43,11 @@
         <p>Oneill's 85-87, St Mary street</p>
       </div>
 
-      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
+      <div class="z-depth-2">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
     </div>
 
   </div>

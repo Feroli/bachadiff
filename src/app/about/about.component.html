@@ -1,18 +1,18 @@
 <div class="center-align">
   <h2 class="question">BachaDiff Team</h2>
-  <hr>
+  <hr class="">
 
-  <div class="row" style="margin-top:10%;">
+  <div class="row z-depth-2">
 
     <div class="col s12 m4">
       <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg" (click)="goToFernandoFacebook()" alt="bachadiff member fernando ania">
-      <hr class="wings">
+      <hr class="wings z-depth-1">
       <p>Fernando Ania</p>
     </div>
     <div class="col s12 m4">
 
       <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/daniel.jpg" (click)="goToDanielFacebook()" alt="international dancer daniel chong">
-      <hr class="wings">
+      <hr class="wings z-depth-1">
 
       <p>Daniel Chong</p>
 
@@ -20,7 +20,7 @@
     </div>
     <div class="col s12 m4">
       <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg" (click)="goToJasonFacebook()" alt="bachadiff member jason">
-      <hr class="wings">
+      <hr class="wings z-depth-1">
 
       <p>DJ JAY</p>
     </div>
@@ -36,8 +36,8 @@
     <h2>Our Vision</h2>
 
     <hr>
-    <div class="vision_container">
-      <p>{{visionText}}</p>
+    <div class="vision_container" [innerHTML]="visionText">
+
   </div>
 
   </div>

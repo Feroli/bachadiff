@@ -3,6 +3,11 @@ div > p {
   color: rgb(117, 117, 117);
 }
 
+.row {
+  margin-top:5%;
+  padding-top:2%;
+}
+
 .vision_container {
   max-width: 80%;
   margin-left: auto;

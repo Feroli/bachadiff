@@ -34,8 +34,11 @@ color: gray;
 }
 .location {
   margin-top: 5%;
+  width: 100%;
+  padding-bottom: 5%;
 }
 
 agm-map {
   height: 300px;
+
 }
