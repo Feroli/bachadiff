@@ -86,7 +86,7 @@ export class FacebookEventsService {
 
         for (let photo of facebookPhotoData) {
 
-          if (photo.id === '1284348711695954' || photo.id === '1284348678362624') {
+          if (photo.id === '1284348711695954' || photo.id === '1284348678362624' || photo.id === '1284348415029317' ) {
             continue;
           }
           else {
