@@ -19,6 +19,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { FacebookEventsService } from './services/facebook-events.service';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GoogleAnalyticsEventsService } from './services/google-analytics-events
     EventsComponent,
     ContactUsComponent,
     CalendarComponent,
-    SideNavComponent
+    SideNavComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

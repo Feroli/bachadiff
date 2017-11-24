@@ -1,0 +1,46 @@
+<div>
+
+  <h2 class="question">Gallery</h2>
+  <hr />
+
+  <div class="row media_container">
+
+    <div class="col s12">
+      <div class="carousel carousel-slider center" data-indicators="true">
+        <div class="carousel-fixed-item center">
+          <a class="btn waves-effect white grey-text darken-text-2">Play</a>
+        </div>
+
+        <div class="carousel-item red white-text" *ngFor="let vid of bachataVidsArray; let i = index;"   [attr.href]="carrousellIterator[i]">
+          <!-- {{vid | json}} -->
+            <!-- <video class="responsive-video" controls>
+                <source src="{{vid.source}}" type="video/mp4">
+              </video> -->
+          <p>Video here</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col s12">
+      <h5 class="center-align">Pictures of the class</h5>
+      <hr />
+      <div class="row gallery_container center-align">
+          <div *ngFor="let image of bachataPicsArray; let i = index">
+            <div class="col m4 s12 image_container">
+              <img (mouseenter) ="mouseEnter($event, i)"
+                   [ngClass]="hoveredId === i ? depth5: depth1"
+                   id="{{i}}"
+                   width="250"
+                   (mouseleave)="mouseLeave($event)"
+                   class="gallery_pic z-depth-1 responsive-img materialboxed"
+                   src="{{image.picture}}"
+                   alt="{{image.link}}" />
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+</div>

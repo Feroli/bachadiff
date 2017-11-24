@@ -156,7 +156,6 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
-
     this.modalBody = `
       BachaDiff is proud to present you an International bachata teacher/performer & DJ Daniel Chong!!!
 

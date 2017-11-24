@@ -15,7 +15,10 @@
   color: #FF4081 !important;
 
 }
-
+.question {
+  font-size: 70px;
+  text-align: center;
+}
 
 body {
   background-color: #fefcfb;
