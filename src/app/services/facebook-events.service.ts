@@ -52,7 +52,7 @@ export class FacebookEventsService {
       `;
 
     this.facebookPhotosUrl = `
-      https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=1&fields=photos{height,width,id,picture,name,link}&access_token=${this.accessToken}
+      https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=1&fields=photos{height,width,id,images,name,link}&access_token=${this.accessToken}
       `;
   }
 
@@ -63,8 +63,6 @@ export class FacebookEventsService {
         let facebookVideo: FacebookVideo;
 
         let facebookVideoData = res['data'];
-
-        console.log(facebookVideoData);
 
         for (let video of facebookVideoData) {
           facebookVideos.push(
@@ -85,11 +83,13 @@ export class FacebookEventsService {
       .map(res => {
 
         let facebookPhotoData = res['data'][0]['photos']['data'];
+
         for (let photo of facebookPhotoData) {
+
           facebookPhotos.push(
             facebookPhoto = {
               id: photo.id,
-              picture: photo.picture,
+              image: photo.images[2].source,
               link: photo.link,
               height: photo.height,
               width: photo.width

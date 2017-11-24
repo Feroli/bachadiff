@@ -24,7 +24,7 @@
         <div *ngFor="let image of bachataPicsArray; let i = index">
           <div class="col m4 s12 image_container">
             <img (mouseenter)="mouseEnter($event, i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{i}}" width="250" (mouseleave)="mouseLeave($event)"
-              class="gallery_pic z-depth-1 responsive-img materialboxed" src="{{image.picture}}" alt="{{image.link}}" />
+              class="gallery_pic z-depth-1 responsive-img materialboxed" src="{{image.image}}" alt="{{image.link}}" />
           </div>
         </div>
       </div>
