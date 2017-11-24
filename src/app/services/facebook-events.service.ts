@@ -19,7 +19,7 @@ export class FacebookEventsService {
   private facebookVideosUrl: string;
   private facebookPhotosUrl: string;
   private pageId = 'Bachadiff'
-  private accessToken = `EAAZARnD23eboBAPRKVellPokt6tkCXTyDN12JVv3PtCNC5kuZCwWFNQQl2XezlnHE1U1BoxMOpICbFqAi39ci8FPpLF7Cx9hWvA9ZBztmHFutZA6XqOckeBj0Q9kn422SwE9YeeZAY9u2GKZCV4Lf1llyZCPsFx7YTKY8x9wkATgQZDZD`;
+  private accessToken = `EAAZARnD23eboBAIiiXBt0ACukutbu4T6gUXytLbfmrYd8Y2oMhdbuVMlhqLcVh4HcjZByVtaxKAXh25Oev36XVq7foFjaPkzQ2kDr5gZAAuKbZCQB4ZAkey8nTi895Tj7GTYFVT2cZBUnSpYbAgwIaTmoFgh0qGKyScYpbKdWOzgZDZD`;
 
   private colors: any = {
     red: {
@@ -48,7 +48,7 @@ export class FacebookEventsService {
       `;
 
     this.facebookVideosUrl = `
-      https://graph.facebook.com/v2.11/${this.pageId}/videos?videos?fields=source&access_token=${this.accessToken}
+      https://graph.facebook.com/v2.11/${this.pageId}/videos?fields=source&access_token=${this.accessToken}
       `;
 
     this.facebookPhotosUrl = `
@@ -62,8 +62,11 @@ export class FacebookEventsService {
         let facebookVideos: FacebookVideo[] = [];
         let facebookVideo: FacebookVideo;
 
-        let facebookPhotoData = res['data'][0]['source'];
-        for (let video of facebookVideos) {
+        let facebookVideoData = res['data'];
+
+        console.log(facebookVideoData);
+
+        for (let video of facebookVideoData) {
           facebookVideos.push(
             facebookVideo = {
               source: video.source
