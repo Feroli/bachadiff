@@ -86,14 +86,19 @@ export class FacebookEventsService {
 
         for (let photo of facebookPhotoData) {
 
-          facebookPhotos.push(
-            facebookPhoto = {
-              id: photo.id,
-              image: photo.images[2].source,
-              link: photo.link,
-              height: photo.height,
-              width: photo.width
-            })
+          if (photo.id === '1284348711695954' || photo.id === '1284348678362624') {
+            continue;
+          }
+          else {
+            facebookPhotos.push(
+              facebookPhoto = {
+                id: photo.id,
+                image: photo.images[3].source,
+                link: photo.link,
+                height: photo.height,
+                width: photo.width
+              })
+          }
         }
         return facebookPhotos;
       })
