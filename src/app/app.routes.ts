@@ -8,12 +8,12 @@ import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
 
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'classes', component: ClassesComponent },
-  { path: 'events', component: EventsComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'contactUs', component: ContactUsComponent },
+  { path: 'home', component: HomeComponent, data: { state: 'home' } },
+  { path: 'about', component: AboutComponent, data: { state: 'about' } },
+  { path: 'classes', component: ClassesComponent, data: { state: 'classes' } },
+  { path: 'events', component: EventsComponent, data: { state: 'events' } },
+  { path: 'gallery', component: GalleryComponent, data: { state: 'gallery' } },
+  { path: 'contactUs', component: ContactUsComponent, data: { state: 'contactUs' } },
 
   {
     path: '',

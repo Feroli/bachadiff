@@ -36,6 +36,7 @@ import { GalleryComponent } from './gallery/gallery.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     appRoutes,
     BrowserAnimationsModule,
