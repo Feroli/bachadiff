@@ -11,7 +11,7 @@ let bodyParser = require('body-parser');
 
 let app = express();
 app.use(require('body-parser').urlencoded({extended: true}));
-
+app.use(require('prerender-node').set('prerenderToken', 'wIGPqD3utDK65NH3r9Em'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
