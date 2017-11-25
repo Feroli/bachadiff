@@ -48,7 +48,7 @@ export class FacebookEventsService {
       `;
 
     this.facebookVideosUrl = `
-      https://graph.facebook.com/v2.11/${this.pageId}/videos?fields=source&access_token=${this.accessToken}
+      https://graph.facebook.com/v2.11/${this.pageId}/videos?limit=3&fields=source&access_token=${this.accessToken}
       `;
 
     this.facebookPhotosUrl = `
