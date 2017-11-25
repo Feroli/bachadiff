@@ -7,7 +7,7 @@
 
     <div class="col s12 m4 center-align" *ngFor="let vid of bachataVidsArray; let i = index">
 
-        <video class="responsive-video bachadiff_vid z-depth-1" id="bachadiff-vid-{{i}}" controls>
+        <video class="responsive-video bachadiff_vid z-depth-1" (click)="play()" #videoPlayer id="bachadiff-vid-{{i}}" controls>
             <source src="{{vid.source}}" type="video/mp4">
         </video>
     </div>

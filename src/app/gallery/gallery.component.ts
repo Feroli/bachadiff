@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
 import { FacebookEventsService } from '../services/facebook-events.service';
 import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { Observable } from 'rxjs/Observable';
@@ -10,6 +10,7 @@ declare var $;
 })
 export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
+  @ViewChild('videoPlayer') videoPlayer: ElementRef;
 
   bachataVidsArray: Array<object>
   bachataPicsArray: FacebookPhoto[];
@@ -27,6 +28,11 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   mouseLeave(event: MouseEvent) {
     this.depth1 = 'z-depth-1';
     this.depth5 = 'z-depth-1';
+  }
+
+
+  play() {
+    this.videoPlayer.nativeElement.paused ? this.videoPlayer.nativeElement.play() : this.videoPlayer.nativeElement.pause();
   }
 
   ngAfterViewChecked() {
