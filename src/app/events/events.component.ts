@@ -63,7 +63,10 @@ export class EventsComponent implements OnInit {
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
-      { name: 'description', content: 'Checkout the Bachadiff calendar for our latest events!' }
+      { name: 'description', content: 'Checkout the Bachadiff calendar for our latest events!' },
+      { name: "fragment", content: "!" }
+
+
     ]);
   }
 

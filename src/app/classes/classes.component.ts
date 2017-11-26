@@ -21,7 +21,9 @@ export class ClassesComponent implements OnInit {
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
-      { name: 'description', content: 'This page describes the structure of our classes and where we are!' }
+      { name: 'description', content: 'This page describes the structure of our classes and where we are!' },
+      { name: "fragment", content: "!" }
+
     ]);
   }
 
@@ -31,12 +33,12 @@ export class ClassesComponent implements OnInit {
     })
   }
   mouseEnter($event: MouseEvent) {
-    this.hover_poster = $event.type == 'mouseenter' ? 'hover_poster z-depth-5': '';
+    this.hover_poster = $event.type == 'mouseenter' ? 'hover_poster z-depth-5' : '';
 
   }
 
   mouseLeave($event: MouseEvent) {
-    this.hover_poster = $event.type == 'mouseleave' ? '': 'hover_poster z-depth-5';
+    this.hover_poster = $event.type == 'mouseleave' ? '' : 'hover_poster z-depth-5';
 
   }
 

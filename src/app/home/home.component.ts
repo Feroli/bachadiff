@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
-      { name: 'description', content: 'This is the bachadiff welcome page for bachata lovers!' }
+      { name: 'description', content: 'This is the bachadiff welcome page for bachata lovers!' },
+      { name: "fragment", content: "!" }
+
     ]);
   }
 

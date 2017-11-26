@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, AfterViewChecked, ElementRef, ViewChi
 import { FacebookEventsService } from '../services/facebook-events.service';
 import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { Observable } from 'rxjs/Observable';
+import { Title, Meta } from '@angular/platform-browser';
 declare var $;
 @Component({
   selector: 'app-gallery',
@@ -18,7 +19,20 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   hoveredId: number;
   depth5 = 'z-depth-5';
   depth1 = 'z-depth-1';
-  constructor(private facebookService: FacebookEventsService) { }
+  constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta) {
+
+    title.setTitle('Bachadiff Gallery page');
+
+    meta.addTags([
+      { name: 'author', content: 'Fenando Ania' },
+      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
+      { name: 'description', content: 'Bachata dance classes videos and photos!' },
+      { name: "fragment", content: "!" }
+
+    ]);
+  }
+
+
 
   mouseEnter(event: MouseEvent, id: number) {
     this.hoveredId = id;
