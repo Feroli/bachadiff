@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
-      { name: 'description', content: `This is the bachadiff welcome page for bachata lovers. Specialised in the Cardiff Bachata/latin Scene
+      { name: 'description', content: `This is the bachadiff welcome page for Cardiff bachata lovers. Specialised in the Cardiff Bachata/latin Scene
       with International Bachata Dancer Daniel Chong (Daniel and Pebbles) and the Bachadiff Team. Explore our site to learn more about Bachata in Cardiff in
       our top Bachata nights, meet our team, find our events, socialise with great Bachata dancers that commute Swansea, Bristol and London for
       our classes. This is a great opportunity to enjoy your night in a fun enviroment where you can improve your dance skills and have a great
