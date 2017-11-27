@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
-      { name: 'description', content: 'Bachata dance classes videos and photos!' },
+      { name: 'description', content: 'Bachata dance classes videos and photos, from Bachadiff!' },
       { name: "fragment", content: "!" }
 
     ]);

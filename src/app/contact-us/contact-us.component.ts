@@ -16,7 +16,7 @@ export class ContactUsComponent implements OnInit {
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
-      { name: 'description', content: 'This is the bachadiff contact us page!' }
+      { name: 'description', content: 'This is the bachadiff contact us page, any questions at all send us an email or messege us on facebook!' }
     ]);
   }
 
