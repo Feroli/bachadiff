@@ -27,16 +27,17 @@ export class AppComponent {
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Starting page');
 
     meta.addTags([
-      { name: 'author', content: 'Fenando Ania' },
-      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
-      { name: 'description', content: description },
-      { name: "fragment", content: "!" },
       { name: "og:url", content: "http://bachadiff.co.uk/" },
       { name: "og:type", content: "Site entry point" },
       { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Starting page" },
       { name: "og:description", content: description },
       { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
-      { name: "fb:app_id", content: "1778581352446394"}
+      { name: "fb:app_id", content: "1778581352446394"},
+      { name: 'author', content: 'Fenando Ania' },
+      { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
+      { name: 'description', content: description },
+      { name: "fragment", content: "!" },
+
     ]);
   }
 }

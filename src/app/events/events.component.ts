@@ -58,13 +58,24 @@ export class EventsComponent implements OnInit {
   events: CalendarEvent[];
 
   constructor(private facebookEventService: FacebookEventsService, private zone: NgZone, meta: Meta, title: Title) {
-    title.setTitle('Bachadiff Events Page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Events Page');
 
+
+    let description = 'Checkout the Bachadiff calendar for our latest Bachata classes, parties in Cardiff and all over the U.K!';
     meta.addTags([
+
+      { name: "og:url", content: "http://bachadiff.co.uk/events/" },
+      { name: "og:type", content: "Website" },
+      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Events Page" },
+      { name: "og:description", content: description },
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { name: "fb:app_id", content: "1778581352446394" },
+
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
-      { name: 'description', content: 'Checkout the Bachadiff calendar for our latest Bachata classes, parties in Cardiff and all over the U.K!' },
+      { name: 'description', content: description },
       { name: "fragment", content: "!" }
+
     ]);
   }
 
