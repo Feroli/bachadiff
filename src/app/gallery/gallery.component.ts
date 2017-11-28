@@ -22,7 +22,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta) {
 
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Gallery page');
-    let description = 'Bachata dance classes videos and photos, from Bachadiff!';
+    let description = 'Cardiff Bachata dance classes videos and photos, from Bachadiff!';
 
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
