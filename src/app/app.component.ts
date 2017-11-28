@@ -18,7 +18,7 @@ export class AppComponent {
       }
     });
 
-    title.setTitle('Bachadiff Starting page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Starting page');
 
         meta.addTags([
           { name: 'author', content: 'Fenando Ania' },

@@ -21,7 +21,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   depth1 = 'z-depth-1';
   constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta) {
 
-    title.setTitle('Bachadiff Gallery page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Gallery page');
 
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },

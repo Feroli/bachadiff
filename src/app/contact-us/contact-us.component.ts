@@ -11,7 +11,7 @@ export class ContactUsComponent implements OnInit {
    bachaDiffFacebookUrl = "https://www.facebook.com/BachaDiff/";
 
    constructor(private meta: Meta, title: Title) {
-    title.setTitle('Bachadiff Contact Us page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Contact Us page');
 
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },

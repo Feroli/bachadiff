@@ -16,7 +16,7 @@ export class ClassesComponent implements OnInit {
   hover_poster = '';
 
   constructor(meta: Meta, title: Title) {
-    title.setTitle('Bachadiff Classes Page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Classes Page');
 
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },

@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
   visionText: string;
 
   constructor(meta: Meta, title: Title) {
-    title.setTitle('Bachadiff About Page');
+    title.setTitle('Bachadiff Bachata Dance Classes in Cardiff About Page');
 
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
