@@ -16,11 +16,11 @@ export class ContactUsComponent implements OnInit {
     let description = 'This is the bachadiff contact us page, any questions at all send us an email or message us on facebook!';
 
     meta.addTags([
-      { name: "og:url", content: "http://bachadiff.co.uk/contactUs/" },
-      { name: "og:type", content: "Bachadiff bachata contact us page" },
-      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff contact us Page" },
-      { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { property: "og:url", content: "http://bachadiff.co.uk/contactUs/" },
+      { property: "og:type", content: "Bachadiff bachata contact us page" },
+      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff contact us Page" },
+      { property: "og:description", content: description },
+      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
       { name: "fb:app_id", content: "1778581352446394"},
 
       { name: 'author', content: 'Fenando Ania' },

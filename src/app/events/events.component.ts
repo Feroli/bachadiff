@@ -64,11 +64,11 @@ export class EventsComponent implements OnInit {
     let description = 'Checkout the Bachadiff calendar for our latest Bachata classes, parties in Cardiff and all over the U.K!';
     meta.addTags([
 
-      { name: "og:url", content: "http://bachadiff.co.uk/events/" },
-      { name: "og:type", content: "Website" },
-      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Events Page" },
-      { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { property: "og:url", content: "http://bachadiff.co.uk/events/" },
+      { property: "og:type", content: "Website" },
+      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Events Page" },
+      { property: "og:description", content: description },
+      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
       { name: "fb:app_id", content: "1778581352446394" },
 
       { name: 'author', content: 'Fenando Ania' },

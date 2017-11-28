@@ -24,11 +24,11 @@ export class AboutComponent implements OnInit {
     night.`;
 
     meta.addTags([
-      { name: "og:url", content: "http://bachadiff.co.uk/about/" },
-      { name: "og:type", content: "Bachadiff bachata about page" },
-      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
-      { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { property: "og:url", content: "http://bachadiff.co.uk/about/" },
+      { property: "og:type", content: "Bachadiff bachata about page" },
+      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
+      { property: "og:description", content: description },
+      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
       { name: "fb:app_id", content: "1778581352446394"},
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },

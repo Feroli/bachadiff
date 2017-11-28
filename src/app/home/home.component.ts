@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
       { name: 'keywords', content: 'Bachata, bachadiff, Cardiff, Wales, Salsa, latin, dance' },
       { name: 'description', content: description },
       { name: "fragment", content: "!" },
-      { name: "og:url", content: "http://bachadiff.co.uk/home/" },
-      { name: "og:type", content: "Bachadiff Bachata Cardiff Home page" },
-      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Home page" },
-      { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+      { property: "og:url", content: "http://bachadiff.co.uk/home/" },
+      { property: "og:type", content: "Bachadiff Bachata Cardiff Home page" },
+      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Home page" },
+      { property: "og:description", content: description },
+      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
 
     ]);
   }

@@ -25,11 +25,11 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     let description = 'Cardiff Bachata dance classes videos and photos, from Bachadiff!';
 
     meta.addTags([
-      { name: "og:url", content: "http://bachadiff.co.uk/gallery/" },
-      { name: "og:type", content: "Bachadiff bachata gallery page" },
-      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Gallery Page" },
-      { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { property: "og:url", content: "http://bachadiff.co.uk/gallery/" },
+      { property: "og:type", content: "Bachadiff bachata gallery page" },
+      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Gallery Page" },
+      { property: "og:description", content: description },
+      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
       { name: "fb:app_id", content: "1778581352446394"},
 
       { name: 'author', content: 'Fenando Ania' },
