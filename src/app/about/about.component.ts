@@ -17,11 +17,24 @@ export class AboutComponent implements OnInit {
   constructor(meta: Meta, title: Title) {
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff About Page');
 
+    let description = `This is the bachadiff welcome page for Cardiff bachata lovers. Specialised in the Cardiff Bachata/latin Scene
+    with International Bachata Dancer Daniel Chong (Daniel and Pebbles) and the Bachadiff Team. Explore our site to learn more about Bachata in Cardiff in
+    our top Bachata nights, meet our team, find our events, socialise with great Bachata dancers that commute Swansea, Bristol and London for
+    our classes. This is a great opportunity to enjoy your night in a fun enviroment where you can improve your dance skills and have a great
+    night.`;
+
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
       { name: 'description', content: 'Meet the bachadiff team and our vision, and learn more about each dancer and their influence in the Cardiff Bachata dance scene!' },
-      { name: "fragment", content: "!" }
+      { name: "fragment", content: "!" },
+      { name: "og:url", content: "http://bachadiff.co.uk/about/" },
+      { name: "og:type", content: "Bachadiff bachata about page" },
+      { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
+      { name: "og:description", content: description },
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+
+
     ]);
   }
 
