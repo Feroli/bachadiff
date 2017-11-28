@@ -65,8 +65,6 @@ export class EventsComponent implements OnInit {
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
       { name: 'description', content: 'Checkout the Bachadiff calendar for our latest classes, parties in Cardiff and all over the U.K!' },
       { name: "fragment", content: "!" }
-
-
     ]);
   }
 
