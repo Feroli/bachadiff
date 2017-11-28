@@ -35,7 +35,8 @@ export class AppComponent {
       { name: "og:type", content: "Site entry point" },
       { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Starting page" },
       { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { name: "fb:app_id", content: "1778581352446394"}
     ]);
   }
 }

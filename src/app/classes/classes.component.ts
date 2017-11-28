@@ -18,7 +18,7 @@ export class ClassesComponent implements OnInit {
   constructor(meta: Meta, title: Title) {
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Classes Page');
 
-    let description = 'This page describes the structure of our Bachata Cardiff classes and where we are!' ;
+    let description = 'This page describes the structure of our Bachata Cardiff classes and where we are!';
     meta.addTags([
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
@@ -28,7 +28,8 @@ export class ClassesComponent implements OnInit {
       { name: "og:type", content: "Bachadiff bachata classes page" },
       { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Classes Page" },
       { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { name: "fb:app_id", content: "1778581352446394"}
 
     ]);
   }

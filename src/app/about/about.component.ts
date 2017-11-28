@@ -32,7 +32,8 @@ export class AboutComponent implements OnInit {
       { name: "og:type", content: "Bachadiff bachata about page" },
       { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
       { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { name: "fb:app_id", content: "1778581352446394"}
 
 
     ]);

@@ -33,7 +33,9 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       { name: "og:type", content: "Bachadiff bachata gallery page" },
       { name: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Gallery Page" },
       { name: "og:description", content: description },
-      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
+      { name: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
+      { name: "fb:app_id", content: "1778581352446394"}
+
 
     ]);
   }
