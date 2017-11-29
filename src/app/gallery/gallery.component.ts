@@ -46,7 +46,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   getAlbum(albumId: number) {
-    this.facebookService.getBachadiffAlbum(albumId);
+    this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => this.bachataPicsArray = res);
   }
   mouseEnter(event: MouseEvent, id: number) {
     this.hoveredId = id;

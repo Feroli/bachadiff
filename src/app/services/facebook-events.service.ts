@@ -19,6 +19,8 @@ export class FacebookEventsService {
   private facebookVideosUrl: string;
   private facebookPhotosUrl: string;
   private facebookAlbumNamesUrl: string;
+  private facebookAlbumPhotosUrl: string;
+  private albumId: number;
   private pageId = 'Bachadiff'
   private accessToken = `EAAZARnD23eboBAIiiXBt0ACukutbu4T6gUXytLbfmrYd8Y2oMhdbuVMlhqLcVh4HcjZByVtaxKAXh25Oev36XVq7foFjaPkzQ2kDr5gZAAuKbZCQB4ZAkey8nTi895Tj7GTYFVT2cZBUnSpYbAgwIaTmoFgh0qGKyScYpbKdWOzgZDZD`;
 
@@ -55,8 +57,11 @@ export class FacebookEventsService {
     this.facebookPhotosUrl = `
       https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=1&fields=photos{height,width,id,images,album,link}&access_token=${this.accessToken}
       `;
+    1284348021696023
 
-    this.facebookAlbumNamesUrl = `https://graph.facebook.com/v2.11/${this.pageId}/albums?fields=description,name&access_token=${this.accessToken}`;
+    this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?fields=images,id,link,height,width&access_token=${this.accessToken}`;
+
+    this.facebookAlbumNamesUrl = `https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=3&fields=description,name&access_token=${this.accessToken}`;
   }
 
   getBachadiffFacebookVideos(): Observable<FacebookVideo[]> {
@@ -112,7 +117,34 @@ export class FacebookEventsService {
 
       })
   };
-  getBachadiffAlbum(albumArrayIndexNumber: number) { }
+  getBachadiffAlbumPhotos(albumId: number) {
+
+    this.albumId = albumId;
+    this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?limit=20&fields=images,id,link,height,width&access_token=${this.accessToken}`;
+
+    let facebookPhotos: FacebookPhoto[] = [];
+    let facebookPhoto: FacebookPhoto;
+    return this.http.get(this.facebookAlbumPhotosUrl)
+      .map(res => {
+
+        let facebookPhotoData = res['data'];
+
+        for (let photo of facebookPhotoData) {
+
+          facebookPhotos.push(
+            facebookPhoto = {
+              id: photo.id,
+              image: photo.images[3].source,
+              link: photo.link,
+              height: photo.height,
+              width: photo.width
+            })
+        }
+        return facebookPhotos;
+
+      });
+  }
+
   getBachadiffFacebookLastClassPictures(): Observable<FacebookPhoto[]> {
 
     let facebookPhotos: FacebookPhoto[] = [];
