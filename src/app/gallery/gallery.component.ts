@@ -15,6 +15,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   bachataVidsArray: Array<object>
   bachataPicsArray: FacebookPhoto[];
+  bachataAlbumHeaderNames: Array<object>
   carrousellIterator: Array<string>;
   hoveredId: number;
   depth5 = 'z-depth-5';
@@ -44,6 +45,9 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
 
+  getAlbum(albumId: number) {
+    this.facebookService.getBachadiffAlbum(albumId);
+  }
   mouseEnter(event: MouseEvent, id: number) {
     this.hoveredId = id;
     this.depth5 = event.type == 'mouseenter' ? 'z-depth-5' : 'z-depth-1';
@@ -55,23 +59,28 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
 
+
   play() {
     this.videoPlayer.nativeElement.paused ? this.videoPlayer.nativeElement.play() : this.videoPlayer.nativeElement.pause();
   }
 
   ngAfterViewChecked() {
 
+      $('ul.tabs').tabs();
+
     $('.materialboxed').materialbox();
   }
 
   ngAfterViewInit(): void {
     $('.carousel.carousel-slider').carousel({ fullWidth: true });
+
   }
 
   ngOnInit() {
 
     this.facebookService.getBachadiffFacebookVideos().subscribe(res => { this.bachataVidsArray = res; });
     this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => this.bachataPicsArray = res);
+    this.facebookService.getBachadiffAlbumNames().subscribe(res => this.bachataAlbumHeaderNames = res);
 
     this.carrousellIterator = ['#one!', '#two!', '#three!', '#four!', '#five!'];
   }

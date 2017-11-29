@@ -18,6 +18,7 @@ export class FacebookEventsService {
   private facebookEventsUrl: string;
   private facebookVideosUrl: string;
   private facebookPhotosUrl: string;
+  private facebookAlbumNamesUrl: string;
   private pageId = 'Bachadiff'
   private accessToken = `EAAZARnD23eboBAIiiXBt0ACukutbu4T6gUXytLbfmrYd8Y2oMhdbuVMlhqLcVh4HcjZByVtaxKAXh25Oev36XVq7foFjaPkzQ2kDr5gZAAuKbZCQB4ZAkey8nTi895Tj7GTYFVT2cZBUnSpYbAgwIaTmoFgh0qGKyScYpbKdWOzgZDZD`;
 
@@ -52,8 +53,10 @@ export class FacebookEventsService {
       `;
 
     this.facebookPhotosUrl = `
-      https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=1&fields=photos{height,width,id,images,name,link}&access_token=${this.accessToken}
+      https://graph.facebook.com/v2.11/${this.pageId}/albums?limit=1&fields=photos{height,width,id,images,album,link}&access_token=${this.accessToken}
       `;
+
+    this.facebookAlbumNamesUrl = `https://graph.facebook.com/v2.11/${this.pageId}/albums?fields=description,name&access_token=${this.accessToken}`;
   }
 
   getBachadiffFacebookVideos(): Observable<FacebookVideo[]> {
@@ -75,6 +78,41 @@ export class FacebookEventsService {
       })
   }
 
+  getBachadiffAlbumNames(): Observable<object[]> {
+
+    let albumHeaderNames: object[] = [];
+    let albumHeader: object;
+    return this.http.get(this.facebookAlbumNamesUrl)
+      .map(res => {
+
+        let facebookHeaderData = res['data'];
+
+        for (let header of facebookHeaderData) {
+
+          //       if (header.name = 'profile pictures' || header.name = 'cover photos') {
+          //   continue;
+          // } else {
+
+          if (header['name'] === 'Profile Pictures' || header['name'] === 'Cover Photos' || header['name'] === "Mobile Uploads") {
+            continue;
+          } else {
+
+            albumHeaderNames.push(
+              albumHeader = {
+                'name': header['name'],
+                'description': header['description'],
+                'id': header['id']
+              }
+            );
+          }
+
+        }
+
+        return albumHeaderNames;
+
+      })
+  };
+  getBachadiffAlbum(albumArrayIndexNumber: number) { }
   getBachadiffFacebookLastClassPictures(): Observable<FacebookPhoto[]> {
 
     let facebookPhotos: FacebookPhoto[] = [];
@@ -86,19 +124,15 @@ export class FacebookEventsService {
 
         for (let photo of facebookPhotoData) {
 
-          if (photo.id === '1284348711695954' || photo.id === '1284348678362624' || photo.id === '1284348415029317' ) {
-            continue;
-          }
-          else {
-            facebookPhotos.push(
-              facebookPhoto = {
-                id: photo.id,
-                image: photo.images[3].source,
-                link: photo.link,
-                height: photo.height,
-                width: photo.width
-              })
-          }
+
+          facebookPhotos.push(
+            facebookPhoto = {
+              id: photo.id,
+              image: photo.images[3].source,
+              link: photo.link,
+              height: photo.height,
+              width: photo.width
+            })
         }
         return facebookPhotos;
       })
