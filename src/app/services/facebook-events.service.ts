@@ -196,7 +196,7 @@ export class FacebookEventsService {
             title: dataItem['name'],
             color: this.colors.red,
             meta: dataItem['description'],
-            cssClass: `${dataItem['id']} ${eventColour} jj`
+            cssClass: `${dataItem['id']} ${eventColour}`
           }
 
 

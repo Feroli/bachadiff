@@ -113,7 +113,7 @@ export class EventsComponent implements OnInit {
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
 
-    this.eventId = events[0].cssClass
+    this.eventId = events[0].cssClass.split(' ')[0]
     this.modalHeader = events[0].title;
     this.modalBody = '';
 
@@ -142,13 +142,9 @@ export class EventsComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.eventId = event.cssClass
+    this.eventId = event.cssClass.split(' ')[0]
     this.modalHeader = event.title;
     this.modalBody = event.meta;
-
-    console.log('dfghjfghj');
-
-
 
 
     $('.modal').modal();
