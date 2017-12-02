@@ -25,6 +25,8 @@ import {
 } from 'angular-calendar';
 import { FacebookEventsService } from '../services/facebook-events.service';
 import { Meta, Title } from '@angular/platform-browser';
+import { mergeMap } from 'rxjs/operator/mergeMap';
+import { forkJoin } from 'rxjs/observable/forkJoin';
 
 declare var $: any
 
@@ -113,6 +115,15 @@ export class EventsComponent implements OnInit {
 
     this.eventId = events[0].cssClass
     this.modalHeader = events[0].title;
+    this.modalBody = '';
+
+    let splitBody = events[0].meta.trim().replace(/ /g, '&nbsp;').split('\n');
+
+    for (let paragraph of splitBody) {
+      this.modalBody  = this.modalBody.concat(paragraph + '<br/>');
+    }
+
+
 
 
     $('.modal').modal();
@@ -133,6 +144,11 @@ export class EventsComponent implements OnInit {
   handleEvent(action: string, event: CalendarEvent): void {
     this.eventId = event.cssClass
     this.modalHeader = event.title;
+    this.modalBody = event.meta;
+
+    console.log('dfghjfghj');
+
+
 
 
     $('.modal').modal();
@@ -156,87 +172,27 @@ export class EventsComponent implements OnInit {
   }
 
   getEvents() {
-    this.facebookEventService.getBachaDiffFacebookEvents()
-      .subscribe(calendarData => {
-        this.events = calendarData;
-        this.refresh.next();
 
-      });
+    const bachadiffEvents = this.facebookEventService.getBachaDiffFacebookEvents('Bachadiff');
+    const bosEvents = this.facebookEventService.getBachaDiffFacebookEvents('BachataOnSaturday');
+
+    forkJoin([bachadiffEvents, bosEvents]).subscribe(events => {
+      this.events = [];
+
+      for (let eventGroup of events) {
+        this.events = this.events.concat(eventGroup);
+      }
+
+      this.refresh.next();
+    })
+
 
   }
 
 
   ngOnInit() {
     this.getEvents();
-    this.modalBody = `
-      BachaDiff is proud to present you an International bachata teacher/performer & DJ Daniel Chong!!!
 
-      <br/>
-      <p>🌟THE BachaDIFF TEAM🌟</p>
-      **International bachata teacher/performer & DJ Daniel Chong!
-      <br/>
-      Check him out with his dance partner by hitting like on their page Daniel & Pebbles
-      <br/>
-      https://www.facebook.com/Daniel.Pebbles.Palpita
-      <br/>
-      <br/>
-
-      Daniel is one of the TOP UK Bachata teachers/performers who has been teaching high quality bachata classes internationally and across the UK. Known for his focus on "MusiKILLity" and utilising his strengths in ALL styles of Bachata to interpret the music. He is also the MAN behind the famous BOS - Bachata On Saturday in London!
-      <br/>
-      https://www.facebook.com/BachataOnSaturday/
-      <br/>
-      <br/>
-
-
-     <p> **Fernando Javier Ania Hernandez</p>
-
-     <p> **Jason "DJ JAY"</p>
-
-     </p> 🌟WHEN?🌟</p>
-      Thursday in November 2017
-
-      <p>🌟WHERE?🌟</p>
-      Upstairs at
-      <br/>
-      O'Neills
-      <br/>
-      85-87 St Mary St
-      <br/>
-      Cardiff CF10 1DW
-      <br/>
-
-      <p>🌟TIME?🌟</p>
-      7:00pm - Doors open - change shoes, register
-      <br/>
-      7:30pm – 9:30pm
-      <br/>
-      9:30pm till late - FREE Dance party (Bachata with a touch of Salsa and Kizomba)
-      <br/>
-
-      <p>🌟PRICE?🌟</p>
-      2 Classes £9 (£7 NUS)
-      <br/>
-      1 Class £7 (£5 NUS)
-      <br/>
-
-      <p>The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music, culture and flow of the dance and most importantly to produce high quality dancers through quality teaching and attention to the basics and fundamentals focusing on concepts of movement, in a super FUN learning environment.</p>
-
-      <p>🌟JOIN OUR MAILING LIST🌟</p>
-      For updates and details of our classes, Special Offers, Discounts for International Festivals and Congresses
-
-      <p>To join please email the following details to bachadiff@gmail.com</p>
-      Name
-      <br/>
-      Surname
-      <br/>
-      Email Address
-      <br/>
-      Mobile Number (For BachaDIFF Whatsapp group)
-      <br/>
-      <br/>
-
-      See you there for the top bachata night in Cardiff!
-      `;
 
   }
 

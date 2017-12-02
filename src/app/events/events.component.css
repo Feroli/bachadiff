@@ -31,8 +31,15 @@
 }
 
 .cal_text {
-  color: #d81b60;
+color: #FF4081;
+/* color: grey; */
+  /* font-weight: bold; */
+}
+
+.bachadiff_text {
+    color: #d81b60;
   font-weight: bold;
+
 }
 
 .btn:hover {

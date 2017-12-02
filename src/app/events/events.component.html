@@ -27,7 +27,7 @@
   <div class="center-align calendar">
       <ng-template #customCellTemplate let-day="day" let-locale="locale">
           <div class="cal-cell-top">
-          <small style="margin: 5px;" class="cal_text"> {{ day.events[0]?.title }}</small>
+          <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
 
           </div>
           <!-- <small style="margin: 5px"> {{ day.events | json }}</small> -->
@@ -53,6 +53,7 @@
       <div class="modal-content">
         <h4 class="modal-header">{{modalHeader}}</h4>
         <p class="modal-description" [innerHTML]="modalBody">
+
       </div>
       <div class="modal-footer">
         <a href="https://www.facebook.com/{{eventId}}" target="_blank" class="modal-action modal-close waves-effect waves-green btn-flat ">See the event on facebook</a>

@@ -152,10 +152,11 @@ export class FacebookEventsService {
     return this.http.get(this.facebookPhotosUrl)
       .map(res => {
 
+
         let facebookPhotoData = res['data'][0]['photos']['data'];
 
-        for (let photo of facebookPhotoData) {
 
+        for (let photo of facebookPhotoData) {
 
           facebookPhotos.push(
             facebookPhoto = {
@@ -170,22 +171,35 @@ export class FacebookEventsService {
       })
   }
 
-  getBachaDiffFacebookEvents(): Observable<CalendarEvent[]> {
+  getBachaDiffFacebookEvents(pageName: string): Observable<CalendarEvent[]> {
+
+    this.facebookEventsUrl = `https://graph.facebook.com/v2.11/${pageName}/events?access_token=${this.accessToken}`;
 
     let calendarEvents: CalendarEvent[] = [];
     let calendarEvent: CalendarEvent;
+
+    let eventColour = (pageName === 'Bachadiff'? 'bachadiff_text': '')
+
     return this.http.get(this.facebookEventsUrl)
       .map(res => {
         let facebookEventData = res['data'];
 
+
+
         for (let dataItem of facebookEventData) {
+
+          console.log(eventColour);
+
           calendarEvent = {
             start: new Date(dataItem['start_time']),
             end: new Date(dataItem['end_time']),
             title: dataItem['name'],
             color: this.colors.red,
-            cssClass: `${dataItem['id']}`
+            meta: dataItem['description'],
+            cssClass: `${dataItem['id']} ${eventColour} jj`
           }
+
+
           calendarEvents.push(calendarEvent);
 
         }
