@@ -12,6 +12,9 @@
   /* text-align: left; */
 }
 
+.modal-content {
+  word-wrap: break-word;
+}
 .btn-small {
   height: 24px;
   line-height: 24px;
