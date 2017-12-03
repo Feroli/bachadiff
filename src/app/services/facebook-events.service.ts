@@ -171,7 +171,7 @@ export class FacebookEventsService {
       })
   }
 
-  getBachaDiffFacebookEvents(pageName: string): Observable<CalendarEvent[]> {
+  getFacebookEventsFromPage(pageName: string): Observable<CalendarEvent[]> {
 
     this.facebookEventsUrl = `https://graph.facebook.com/v2.11/${pageName}/events?access_token=${this.accessToken}`;
 
@@ -183,21 +183,42 @@ export class FacebookEventsService {
     return this.http.get(this.facebookEventsUrl)
       .map(res => {
         let facebookEventData = res['data'];
-
-
-
         for (let dataItem of facebookEventData) {
 
-          console.log(eventColour);
+          let startTime = dataItem['start_time'];
+          let endTime = dataItem['end_time'];
+          let title = dataItem['name'];
+          let meta = dataItem['description'];
+
+          let eventTimes = dataItem['event_times'];
+
+          if (typeof eventTimes !== 'undefined') {
+
+            for (let reocurringEvent of eventTimes) {
+
+              startTime = reocurringEvent['start_time']
+              endTime = reocurringEvent['end_time']
+
+              calendarEvent = {
+                start: new Date(startTime),
+                end: new Date(endTime),
+                title: title,
+                color: this.colors.red,
+                meta: meta,
+                cssClass: `${dataItem['id']} ${eventColour}`
+              }
+            }
+          } else {
 
           calendarEvent = {
-            start: new Date(dataItem['start_time']),
-            end: new Date(dataItem['end_time']),
-            title: dataItem['name'],
+            start: new Date(startTime),
+            end: new Date(endTime),
+            title: title,
             color: this.colors.red,
-            meta: dataItem['description'],
+            meta: meta,
             cssClass: `${dataItem['id']} ${eventColour}`
           }
+        }
 
 
           calendarEvents.push(calendarEvent);

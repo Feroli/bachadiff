@@ -31,9 +31,9 @@
 }
 
 .cal_text {
-color: #FF4081;
-/* color: grey; */
-  /* font-weight: bold; */
+  color: #FF4081;
+  cursor: pointer;
+  font-weight: 400;
 }
 
 .bachadiff_text {

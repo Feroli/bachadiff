@@ -169,10 +169,11 @@ export class EventsComponent implements OnInit {
 
   getEvents() {
 
-    const bachadiffEvents = this.facebookEventService.getBachaDiffFacebookEvents('Bachadiff');
-    const bosEvents = this.facebookEventService.getBachaDiffFacebookEvents('BachataOnSaturday');
+    const bachadiffEvents = this.facebookEventService.getFacebookEventsFromPage('Bachadiff');
+    const bosEvents = this.facebookEventService.getFacebookEventsFromPage('BachataOnSaturday');
+    const salsaSouls = this.facebookEventService.getFacebookEventsFromPage('SalsaSoulsBristol')
 
-    forkJoin([bachadiffEvents, bosEvents]).subscribe(events => {
+    forkJoin([bachadiffEvents, bosEvents, salsaSouls]).subscribe(events => {
       this.events = [];
 
       for (let eventGroup of events) {
