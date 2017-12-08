@@ -38,6 +38,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@types/date-fns": "^2.6.0",
+    "@types/jquery": "^3.2.16",
     "angular-calendar": "^0.21.3",
     "angular2-universal": "^2.1.0-rc.1",
     "body-parser": "^1.18.2",
