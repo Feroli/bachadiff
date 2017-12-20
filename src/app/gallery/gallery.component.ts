@@ -21,7 +21,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   depth5 = 'z-depth-5';
   depth1 = 'z-depth-1';
   constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta) {
-    $('ul.tabs').tabs();
 
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Gallery page');
     let description = 'Cardiff Bachata dance classes videos and photos, from Bachadiff!';
@@ -75,6 +74,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   ngOnInit() {
+    $('ul.tabs').tabs();
 
     this.facebookService.getBachadiffFacebookVideos().subscribe(res => { this.bachataVidsArray = res; });
     this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => this.bachataPicsArray = res);
