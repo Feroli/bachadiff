@@ -120,11 +120,8 @@ export class EventsComponent implements OnInit {
     let splitBody = events[0].meta.trim().replace(/ /g, '&nbsp;').split('\n');
 
     for (let paragraph of splitBody) {
-      this.modalBody  = this.modalBody.concat(paragraph + '<br/>');
+      this.modalBody = this.modalBody.concat(paragraph + '<br/>');
     }
-
-
-
 
     $('.modal').modal();
     $('#modal1').modal('open');

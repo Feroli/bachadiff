@@ -11,6 +11,8 @@ import 'rxjs/add/operator/map';
 import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { FacebookVideo } from '../interfaces/facebook-video';
 
+import { format, compareAsc, parse } from 'date-fns';
+
 
 @Injectable()
 export class FacebookEventsService {
@@ -178,7 +180,7 @@ export class FacebookEventsService {
     let calendarEvents: CalendarEvent[] = [];
     let calendarEvent: CalendarEvent;
 
-    let eventColour = (pageName === 'Bachadiff'? 'bachadiff_text': '')
+    let eventColour = (pageName === 'Bachadiff' ? 'bachadiff_text' : '')
 
     return this.http.get(this.facebookEventsUrl)
       .map(res => {
@@ -196,12 +198,12 @@ export class FacebookEventsService {
 
             for (let reocurringEvent of eventTimes) {
 
-              startTime = reocurringEvent['start_time']
-              endTime = reocurringEvent['end_time']
+              startTime = reocurringEvent['start_time'];
+              endTime = reocurringEvent['end_time'];
 
               calendarEvent = {
-                start: new Date(startTime),
-                end: new Date(endTime),
+                start: parse(startTime),
+                end: parse(endTime),
                 title: title,
                 color: this.colors.red,
                 meta: meta,
@@ -210,15 +212,15 @@ export class FacebookEventsService {
             }
           } else {
 
-          calendarEvent = {
-            start: new Date(startTime),
-            end: new Date(endTime),
-            title: title,
-            color: this.colors.red,
-            meta: meta,
-            cssClass: `${dataItem['id']} ${eventColour}`
+            calendarEvent = {
+              start: parse(startTime),
+              end: parse(endTime),
+              title: title,
+              color: this.colors.red,
+              meta: meta,
+              cssClass: `${dataItem['id']} ${eventColour}`
+            }
           }
-        }
 
 
           calendarEvents.push(calendarEvent);
