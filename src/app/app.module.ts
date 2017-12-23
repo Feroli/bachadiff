@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +43,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     CalendarModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC90CDCThfCncC8hQS21pIXzI7Znn65RgQ'
-    })
+    }),
+    BrowserTransferStateModule
 
   ],
   providers: [FacebookEventsService, GoogleAnalyticsEventsService],

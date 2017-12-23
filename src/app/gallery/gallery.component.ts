@@ -3,7 +3,13 @@ import { FacebookEventsService } from '../services/facebook-events.service';
 import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { Observable } from 'rxjs/Observable';
 import { Title, Meta } from '@angular/platform-browser';
+import { TransferState, makeStateKey } from '@angular/platform-browser';
+
 declare var $;
+const VIDEOS_KEY = makeStateKey('videos');
+const LAST_CLASS_PICTURES_KEY = makeStateKey('lastClassPictures');
+const ALBUM_NAMES_KEY = makeStateKey('albumNames');
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -13,6 +19,12 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   @ViewChild('videoPlayer') videoPlayer: ElementRef;
 
+  videos: any;
+  lastClassPictures: any;
+  albumNames: any;
+
+
+
   bachataVidsArray: Array<object>
   bachataPicsArray: FacebookPhoto[];
   bachataAlbumHeaderNames: Array<object>
@@ -20,7 +32,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   hoveredId: number;
   depth5 = 'z-depth-5';
   depth1 = 'z-depth-1';
-  constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta) {
+  constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta, private state: TransferState) {
 
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Gallery page');
     let description = 'Cardiff Bachata dance classes videos and photos, from Bachadiff!';
@@ -76,9 +88,21 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   ngOnInit() {
     $('ul.tabs').tabs();
 
-    this.facebookService.getBachadiffFacebookVideos().subscribe(res => { this.bachataVidsArray = res; });
-    this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => this.bachataPicsArray = res);
-    this.facebookService.getBachadiffAlbumNames().subscribe(res => this.bachataAlbumHeaderNames = res);
+    this.videos = this.state.get(VIDEOS_KEY, null as any);
+    this.lastClassPictures = this.state.get(LAST_CLASS_PICTURES_KEY, null as any);
+    this.albumNames = this.state.get(ALBUM_NAMES_KEY, null as any);
+
+    if (!this.videos) {
+      this.facebookService.getBachadiffFacebookVideos().subscribe(res => { this.bachataVidsArray = res; });
+    }
+
+    if (!this.lastClassPictures) {
+      this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => this.bachataPicsArray = res);
+    }
+
+    if (!this.albumNames) {
+      this.facebookService.getBachadiffAlbumNames().subscribe(res => this.bachataAlbumHeaderNames = res);
+    }
 
   }
 
