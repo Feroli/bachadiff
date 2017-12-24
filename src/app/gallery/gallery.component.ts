@@ -9,6 +9,7 @@ declare var $;
 const VIDEOS_KEY = makeStateKey('videos');
 const LAST_CLASS_PICTURES_KEY = makeStateKey('lastClassPictures');
 const ALBUM_NAMES_KEY = makeStateKey('albumNames');
+const ALBUM_PHOTOS_KEY = makeStateKey('albumPhotos');
 
 @Component({
   selector: 'app-gallery',
@@ -22,8 +23,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   videos: any;
   lastClassPictures: any;
   albumNames: any;
-
-
+  albumPhotos: any;
 
   bachataVidsArray: Array<object>
   bachataPicsArray: FacebookPhoto[];
@@ -58,7 +58,15 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   getAlbum(albumId: number) {
-    this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => this.bachataPicsArray = res);
+
+    this.albumPhotos = this.state.get(ALBUM_PHOTOS_KEY, null as any);
+
+    if (!this.albumPhotos) {
+      this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
+        this.bachataPicsArray = res;
+        this.state.set(ALBUM_PHOTOS_KEY, res as any);
+      });
+    }
   }
   mouseEnter(event: MouseEvent, id: number) {
     this.hoveredId = id;
@@ -69,7 +77,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.depth1 = 'z-depth-1';
     this.depth5 = 'z-depth-1';
   }
-
 
 
   play() {
@@ -93,15 +100,24 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.albumNames = this.state.get(ALBUM_NAMES_KEY, null as any);
 
     if (!this.videos) {
-      this.facebookService.getBachadiffFacebookVideos().subscribe(res => { this.bachataVidsArray = res; });
+      this.facebookService.getBachadiffFacebookVideos().subscribe(res => {
+        this.bachataVidsArray = res;
+        this.state.set(VIDEOS_KEY, res as any);
+      });
     }
 
     if (!this.lastClassPictures) {
-      this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => this.bachataPicsArray = res);
+      this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => {
+        this.bachataPicsArray = res;
+        this.state.set(LAST_CLASS_PICTURES_KEY, res as any);
+      });
     }
 
     if (!this.albumNames) {
-      this.facebookService.getBachadiffAlbumNames().subscribe(res => this.bachataAlbumHeaderNames = res);
+      this.facebookService.getBachadiffAlbumNames().subscribe(res => {
+        this.bachataAlbumHeaderNames = res;
+        this.state.set(ALBUM_NAMES_KEY, res as any);
+      });
     }
 
   }

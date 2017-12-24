@@ -158,6 +158,8 @@ export class FacebookEventsService {
         let facebookPhotoData = res['data'][0]['photos']['data'];
 
 
+
+
         for (let photo of facebookPhotoData) {
 
           facebookPhotos.push(

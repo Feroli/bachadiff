@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
       { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff Home page" },
       { property: "og:description", content: description },
       { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
-
     ]);
   }
 
