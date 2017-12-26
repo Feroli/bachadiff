@@ -2,8 +2,10 @@ import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-bro
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, } from '@angular/common/http';
 import { CalendarModule } from 'angular-calendar';
+import {TransferHttpCacheModule} from '@nguniversal/common';
+
 
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -35,7 +37,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     GalleryComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'bachadiff' }),
+    TransferHttpCacheModule,
     BrowserAnimationsModule,
     HttpClientModule,
     appRoutes,

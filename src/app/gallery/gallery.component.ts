@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   albumPhotos: any;
 
   bachataVidsArray: Array<object>
-  bachataPicsArray: FacebookPhoto[];
+  bachataPicsArray: any
   bachataAlbumHeaderNames: Array<object>
 
   hoveredId: number;
@@ -60,10 +60,13 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   getAlbum(albumId: number) {
 
     this.albumPhotos = this.state.get(ALBUM_PHOTOS_KEY, null as any);
+    console.log('albumPicss:  ', this.albumPhotos);
+
 
     if (!this.albumPhotos) {
       this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
         this.bachataPicsArray = res;
+
         this.state.set(ALBUM_PHOTOS_KEY, res as any);
       });
     }

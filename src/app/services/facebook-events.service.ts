@@ -1,4 +1,4 @@
-import { Injectable, ViewChild, TemplateRef } from '@angular/core';
+import { Injectable, ViewChild, TemplateRef, PLATFORM_ID, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Http } from '@angular/http';
 
@@ -12,10 +12,15 @@ import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { FacebookVideo } from '../interfaces/facebook-video';
 
 import { format, compareAsc, parse } from 'date-fns';
+import { StateKey, makeStateKey, TransferState } from '@angular/platform-browser';
+import { isPlatformServer } from '@angular/common';
 
 
 @Injectable()
 export class FacebookEventsService {
+
+
+  private ALBUM_PHOTOS_KEY: StateKey<number>;
 
   private facebookEventsUrl: string;
   private facebookVideosUrl: string;
@@ -47,7 +52,10 @@ export class FacebookEventsService {
   };
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object, private transferState: TransferState) {
+
+    this.ALBUM_PHOTOS_KEY = makeStateKey('albumPhotos');
+
     this.facebookEventsUrl = `
       https://graph.facebook.com/v2.11/${this.pageId}/events?access_token=${this.accessToken}
       `;
@@ -119,9 +127,26 @@ export class FacebookEventsService {
 
       })
   };
+
   getBachadiffAlbumPhotos(albumId: number) {
 
     this.albumId = albumId;
+    this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?limit=20&fields=images,id,link,height,width&access_token=${this.accessToken}`;
+
+    if (isPlatformServer(this.platformId)) {
+      console.log('plataformId', this.platformId);
+
+      return this.getServerBachaDiffAlbumPhotos(albumId);
+    } else {
+      console.log('plataformId', this.platformId);
+
+      return this.getBrowserBachaDiffAlbumPhotos();
+    }
+
+  }
+
+  getServerBachaDiffAlbumPhotos(albumId: number): Observable<FacebookPhoto[]> {
+
     this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?limit=20&fields=images,id,link,height,width&access_token=${this.accessToken}`;
 
     let facebookPhotos: FacebookPhoto[] = [];
@@ -142,10 +167,22 @@ export class FacebookEventsService {
               width: photo.width
             })
         }
+        this.transferState.set(this.ALBUM_PHOTOS_KEY, res);
         return facebookPhotos;
 
       });
   }
+
+  getBrowserBachaDiffAlbumPhotos() {
+    return new Observable(observer => {
+      observer.next(this.transferState.get(this.ALBUM_PHOTOS_KEY, null));
+
+      console.log('the observer', observer);
+
+    })
+  }
+
+
 
   getBachadiffFacebookLastClassPictures(): Observable<FacebookPhoto[]> {
 
