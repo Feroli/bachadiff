@@ -7,49 +7,37 @@
 
     <div class="col s12 m4 center-align" *ngFor="let vid of bachataVidsArray; let i = index">
 
-        <video class="responsive-video bachadiff_vid z-depth-1" (click)="play()" #videoPlayer id="bachadiff-vid-{{i}}" controls>
-            <source src="{{vid.source}}" type="video/mp4">
-        </video>
-    </div>
-
-    </div>
-
-    <!-- <div class="col s12">
-      <h5 class="center-align">Pictures Of The Last Bachata Class</h5>
-      <hr />
-      <div class="row gallery_container center-align">
-        <div *ngFor="let image of bachataPicsArray; let i = index">
-          <div class="col m4 s12 image_container">
-            <img (mouseenter)="mouseEnter($event, i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" width="200" (mouseleave)="mouseLeave($event)"
-              class="gallery_pic z-depth-1 responsive-img materialboxed" src="{{image.image}}" alt="{{image.link}}" />
-          </div>
-        </div>
-      </div>
-
-    </div> -->
-
-    <div class="row">
-      <div class="col s12">
-          <h5 class="center-align">Pictures of our Cardiff Bachata Classes</h5>
-          <hr />
-        <ul class="tabs">
-            <li class="tab col s4" *ngFor="let header of bachataAlbumHeaderNames" (click)="getAlbum(header.id)"><a href="#{{header.id}}">{{header.name}}</a></li>
-        </ul>
-      </div>
-
-      <div class="photos">
-
-        <div *ngFor="let headerContent of bachataAlbumHeaderNames" id="{{headerContent.id}}"  class="col s12" >
-            <div class="row gallery_container center-align">
-                <div *ngFor="let image of bachataPicsArray; let i = index">
-                  <div class="col m4 s12 image_container">
-                    <img (mouseenter)="mouseEnter($event, i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" width="200" (mouseleave)="mouseLeave($event)"
-                      class="gallery_pic z-depth-1 responsive-img materialboxed" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance" />
-                  </div>
-                </div>
-              </div>
-        </div>
-      </div>
+      <video class="responsive-video bachadiff_vid z-depth-1" (click)="play()" #videoPlayer id="bachadiff-vid-{{i}}" controls>
+        <source src="{{vid.source}}" type="video/mp4">
+      </video>
     </div>
 
   </div>
+
+  <div class="row">
+    <div class="col s12">
+      <h5 class="center-align">Pictures of our Cardiff Bachata Classes</h5>
+      <hr />
+      <ul class="tabs">
+        <li class="tab col s4" *ngFor="let header of bachataAlbumHeaderNames" (click)="getAlbum(header.id)"><a href="#{{header.id}}">{{header.name}}</a></li>
+      </ul>
+    </div>
+
+    <div class="photos">
+
+      <div id="{{currentTabId}}" class="col s12">
+        <div class="row gallery_container center-align">
+
+          <div *ngFor="let image of bachataPicsArray; let i = index">
+            <div class="col m4 s12 image_container">
+              <img (mouseenter)="mouseEnter($event, i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" width="200" (mouseleave)="mouseLeave($event)"
+                class="gallery_pic z-depth-1 responsive-img materialboxed" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

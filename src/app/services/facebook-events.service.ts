@@ -128,25 +128,9 @@ export class FacebookEventsService {
       })
   };
 
-  getBachadiffAlbumPhotos(albumId: number) {
+  getBachadiffAlbumPhotos(albumId: number): Observable<FacebookPhoto[]> {
 
     this.albumId = albumId;
-    this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?limit=20&fields=images,id,link,height,width&access_token=${this.accessToken}`;
-
-    if (isPlatformServer(this.platformId)) {
-      console.log('plataformId', this.platformId);
-
-      return this.getServerBachaDiffAlbumPhotos(albumId);
-    } else {
-      console.log('plataformId', this.platformId);
-
-      return this.getBrowserBachaDiffAlbumPhotos();
-    }
-
-  }
-
-  getServerBachaDiffAlbumPhotos(albumId: number): Observable<FacebookPhoto[]> {
-
     this.facebookAlbumPhotosUrl = `https://graph.facebook.com/v2.11/${this.albumId}/photos?limit=20&fields=images,id,link,height,width&access_token=${this.accessToken}`;
 
     let facebookPhotos: FacebookPhoto[] = [];
@@ -171,18 +155,8 @@ export class FacebookEventsService {
         return facebookPhotos;
 
       });
+
   }
-
-  getBrowserBachaDiffAlbumPhotos() {
-    return new Observable(observer => {
-      observer.next(this.transferState.get(this.ALBUM_PHOTOS_KEY, null));
-
-      console.log('the observer', observer);
-
-    })
-  }
-
-
 
   getBachadiffFacebookLastClassPictures(): Observable<FacebookPhoto[]> {
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { FacebookEventsService } from '../services/facebook-events.service';
 import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { Observable } from 'rxjs/Observable';
 import { Title, Meta } from '@angular/platform-browser';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { isPlatformServer } from '@angular/common';
 
 declare var $;
 const VIDEOS_KEY = makeStateKey('videos');
@@ -29,10 +30,14 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   bachataPicsArray: any
   bachataAlbumHeaderNames: Array<object>
 
+  currentTabId: number;
+
   hoveredId: number;
+
   depth5 = 'z-depth-5';
   depth1 = 'z-depth-1';
-  constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta, private state: TransferState) {
+  constructor(private facebookService: FacebookEventsService, title: Title, meta: Meta,
+    private state: TransferState, @Inject(PLATFORM_ID) private platformId: Object) {
 
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Gallery page');
     let description = 'Cardiff Bachata dance classes videos and photos, from Bachadiff!';
@@ -59,17 +64,11 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   getAlbum(albumId: number) {
 
-    this.albumPhotos = this.state.get(ALBUM_PHOTOS_KEY, null as any);
-    console.log('albumPicss:  ', this.albumPhotos);
-
-
-    if (!this.albumPhotos) {
-      this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
-        this.bachataPicsArray = res;
-
-        this.state.set(ALBUM_PHOTOS_KEY, res as any);
-      });
-    }
+    this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
+      this.currentTabId = albumId;
+      this.bachataPicsArray = res;
+      console.log('picsArray: ', this.bachataPicsArray);
+    });
   }
   mouseEnter(event: MouseEvent, id: number) {
     this.hoveredId = id;
@@ -118,7 +117,9 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     if (!this.albumNames) {
       this.facebookService.getBachadiffAlbumNames().subscribe(res => {
+        this.currentTabId = res[0]['id'];
         this.bachataAlbumHeaderNames = res;
+
         this.state.set(ALBUM_NAMES_KEY, res as any);
       });
     }
