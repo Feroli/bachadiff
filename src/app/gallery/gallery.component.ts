@@ -15,7 +15,7 @@ const ALBUM_PHOTOS_KEY = makeStateKey('albumPhotos');
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
@@ -54,9 +54,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance' },
       { name: 'description', content: description },
       { name: "fragment", content: "!" },
-
-
-
     ]);
   }
 

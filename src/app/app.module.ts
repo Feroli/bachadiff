@@ -4,8 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, } from '@angular/common/http';
 import { CalendarModule } from 'angular-calendar';
-import {TransferHttpCacheModule} from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
+import {
+  MatGridListModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatCardModule,
+  MatDialogModule
+} from '@angular/material';
 
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -22,6 +31,7 @@ import { FacebookEventsService } from './services/facebook-events.service';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +44,11 @@ import { GalleryComponent } from './gallery/gallery.component';
     ContactUsComponent,
     CalendarComponent,
     SideNavComponent,
-    GalleryComponent
+    GalleryComponent,
+    MatDialogComponent
+  ],
+  entryComponents: [
+    MatDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'bachadiff' }),
@@ -47,7 +61,24 @@ import { GalleryComponent } from './gallery/gallery.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC90CDCThfCncC8hQS21pIXzI7Znn65RgQ'
     }),
-    BrowserTransferStateModule
+    BrowserTransferStateModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule
+  ],
+
+  exports: [
+    MatGridListModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule
 
   ],
   providers: [FacebookEventsService, GoogleAnalyticsEventsService],

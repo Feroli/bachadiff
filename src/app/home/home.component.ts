@@ -5,12 +5,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
   question: string;
   answer: string;
+
+
 
   constructor(private router: Router, meta: Meta, title: Title) {
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Home page');
@@ -33,8 +35,6 @@ export class HomeComponent implements OnInit {
       { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" }
     ]);
   }
-
-
 
   goToAbout() {
     this.router.navigateByUrl('/about');

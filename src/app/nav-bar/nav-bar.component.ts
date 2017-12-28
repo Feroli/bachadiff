@@ -5,7 +5,7 @@ import { routerTransition } from '../router.animations';
   selector: 'app-nav-bar',
   animations: [ routerTransition ],
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
 

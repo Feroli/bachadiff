@@ -1,6 +1,7 @@
 
 div > p {
   color: rgb(117, 117, 117);
+  text-align: center;
 }
 
 .row {
@@ -15,15 +16,18 @@ div > p {
   text-align: left;
 }
 
+
 .about-image {
   border-radius: 50%;
   height: 200px;
   width: 200px;
   border: 5px solid rgba(216,27,96, .5);
+  cursor: pointer;
+
 }
 
 .about-image:hover {
-  border: 3px solid #d81b60;
+  border: 5px solid #d81b60;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }

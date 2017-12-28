@@ -1,0 +1,41 @@
+// mat-toolbar {
+//   background-color: white;
+// }
+@import '~themes/colours';
+
+
+
+.nav_link {
+  padding: 0 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.brand-logo {
+  color: black;
+  font-weight: 600pt;
+  padding-left: 5%;
+
+  transition: color .25s ease-in-out;
+  -moz-transition: color .25s ease-in-out;
+  -webkit-transition: color .25s ease-in-out;
+}
+
+mat-toolbar-row > button > span > a  {
+  color: black;
+}
+
+mat-toolbar-row > button:hover {
+  color: $accent;
+}
+
+.brand-logo:hover {
+  color: $accent;
+
+}
+

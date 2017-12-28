@@ -1,0 +1,33 @@
+@import '~themes/colours';
+
+div {
+  text-align: center;
+  margin-top: 10%;
+}
+
+#main-question {
+  font-size: 100px;
+}
+
+mat-icon {
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.6;
+
+}
+
+i {
+  font-size: 4em;
+  border: $accent dashed 1px;
+  border-radius: 60%;
+}
+
+mat-icon:hover {
+  opacity: 1;
+}
+
+.answer {
+  color: rgb(117, 117, 117);
+  font-size: 34px;
+}

@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { ProfilePicture } from '../interfaces/profile-picture';
+import { v4 as uuid } from 'uuid';
+
 declare var $;
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
 
   private fernandoFacebookUrl = 'https://www.facebook.com/Fer0li';
   private danielFacebookUrl = 'https://www.facebook.com/daniel.chong.908';
   private jasonFacebookUrl = 'https://www.facebook.com/jasondjjay.bachata.7';
+
+  private profilePictures: ProfilePicture[];
 
   visionText: string;
 
@@ -29,7 +34,7 @@ export class AboutComponent implements OnInit {
       { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
       { property: "og:description", content: description },
       { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
-      { name: "fb:app_id", content: "1778581352446394"},
+      { name: "fb:app_id", content: "1778581352446394" },
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
       { name: 'description', content: 'Meet the bachadiff team and our vision, and learn more about each dancer and their influence in the Cardiff Bachata dance scene!' },
@@ -40,17 +45,9 @@ export class AboutComponent implements OnInit {
     ]);
   }
 
-  goToFernandoFacebook() {
-    window.open(this.fernandoFacebookUrl, '_blank');
+  goToFacebook(link: string) {
+    window.open(link, '_blank');
   };
-
-  goToDanielFacebook() {
-    window.open(this.danielFacebookUrl, '_blank')
-  };
-
-  goToJasonFacebook() {
-    window.open(this.jasonFacebookUrl, '_blank')
-  }
 
   findUs() {
     $('html, body').animate({
@@ -59,6 +56,34 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+
+    this.profilePictures = [
+      {
+        id: uuid(),
+        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg",
+        title: "Fernando Ania",
+        link: this.fernandoFacebookUrl
+      },
+      {
+
+        id: uuid(),
+        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/daniel.jpg",
+        title: "Daniel Chong",
+        link: this.danielFacebookUrl
+
+      },
+      {
+        id: uuid(),
+        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg",
+        title: "DJ JAY",
+        link: this.jasonFacebookUrl
+
+
+      }
+    ];
+
     this.visionText = `
     The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music,
     culture and flow of the dance and most importantly to produce high quality dancers through quality

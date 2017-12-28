@@ -1,17 +1,15 @@
-<nav class="z-depth-1">
-  <div class="nav-wrapper">
-      <app-side-nav class="hide-on-large-only"></app-side-nav>
+<mat-toolbar class="mat-elevation-z2" color="primary">
+  <mat-toolbar-row>
+    <a routerLink="/home" class="brand-logo"routerLinkActive="Active"><span>BACHADIFF</span></a>
+    <span class="spacer"></span>
 
-    <a routerLink="/home" routerLinkActive="active" class="brand-logo">BACHADIFF</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="about" routerLinkActive="active">About</a></li>
-      <li><a routerLink="classes" routerLinkActive="active">Classes</a></li>
-      <li><a routerLink="events" routerLinkActive="active">Events</a></li>
-      <li><a routerLink="gallery" routerLinkActive="active">Gallery</a></li>
-      <li><a routerLink="contactUs" routerLinkActive="active">Contact Us</a></li>
-    </ul>
-  </div>
-</nav>
+    <button mat-button routerLink="about" routerLinkActive="active"><a ><span class="nav_link">About</span></a></button>
+    <button mat-button routerLink="classes" routerLinkActive="active"><a ><span class="nav_link">Classes</span></a></button>
+    <button mat-button routerLink="events" routerLinkActive="active"><a ><span class="nav_link">Events</span></a></button>
+    <button mat-button routerLink="gallery" routerLinkActive="active"><a ><span class="nav_link">Gallery</span></a></button>
+    <button mat-button routerLink="contactUs" routerLinkActive="active"><a ><span class="nav_link">Contact Us</span></a></button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <div [@routerTransition]="getState(o)">
   <router-outlet #o="outlet"></router-outlet>

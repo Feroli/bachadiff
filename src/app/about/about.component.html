@@ -1,61 +1,48 @@
-<div class="center-align">
+<div>
   <h2 class="question">BachaDiff Team</h2>
   <hr class="">
 
-  <div class="row z-depth-2">
-
-    <div class="col s12 m4">
-      <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg" (click)="goToFernandoFacebook()" alt="bachadiff member fernando ania">
-      <hr class="wings z-depth-1">
-      <p>Fernando Ania</p>
-    </div>
-    <div class="col s12 m4">
-
-      <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/daniel.jpg" (click)="goToDanielFacebook()" alt="international dancer daniel chong">
-      <hr class="wings z-depth-1">
-
-      <p>Daniel Chong</p>
+  <mat-grid-list cols="3" rowHeight="300px">
+    <mat-grid-tile *ngFor="let profilePicture of profilePictures" [colspan]="1" [rowspan]="1">
+      <div>
+        <img class="about-image" src="{{profilePicture.image}}" (click)=goToFacebook(profilePicture.link) alt="{{profilePicture.title}}">
+        <hr class="wings z-depth-1">
+         <p>{{profilePicture.title}}</p>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 
 
-    </div>
-    <div class="col s12 m4">
-      <img class="about-image" src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg" (click)="goToJasonFacebook()" alt="bachadiff member jason">
-      <hr class="wings z-depth-1">
-
-      <p>DJ JAY</p>
-    </div>
-
+  <!-- <div style="text-align: center">
+    <button mat-raised-button color="accent" (click)="findUs()">Our Vision</button>
   </div>
-
-  <div class="col s12  hide-on-med-and-down">
-      <button class="btn accent" (click)="findUs()">Our Vision</button>
-    </div>
 
   <div style="margin-top: 10%">
 
-    <h2>Our Vision</h2>
+    <h2 style="text-align: center">Our Vision</h2>
 
     <hr />
     <div class="vision_container">
-        The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music,
-        culture and flow of the dance and most importantly to produce high quality dancers through quality
-        teaching and attention to the basics and fundamentals focusing on concepts of movement, in a super FUN learning environment.
+      The BachaDIFF team focus will be for Bachata Social Dancing and we aim to highlight the music, culture and flow of the dance
+      and most importantly to produce high quality dancers through quality teaching and attention to the basics and fundamentals
+      focusing on concepts of movement, in a super FUN learning environment.
 
-        <h5>Daniel Chong</h5>
+      <h5>Daniel Chong</h5>
 
-        <p>An international dance teacher/performer who travels across Europe to teach bachata from beginner to advance levels. He is also
-        run the succesful monthly party BOS (Bachata On Saturday) in London, which accrues 400 - 500 people on the night.</p>
+      <p>An international dance teacher/performer who travels across Europe to teach bachata from beginner to advance levels.
+        He is also run the succesful monthly party BOS (Bachata On Saturday) in London, which accrues 400 - 500 people on
+        the night.</p>
 
-        <h5>Fernando Ania</h5>
+      <h5>Fernando Ania</h5>
 
-        <p>Bachata dancer taught primarily by Daniel Chong and by other professional dancers.</p>
+      <p>Bachata dancer taught primarily by Daniel Chong and by other professional dancers.</p>
 
-        <h5>Jason DJ JAY</h5>
+      <h5>Jason DJ JAY</h5>
 
-        <p>Bachata dancer and DJ taught by teachers from all around the world.</p>
+      <p>Bachata dancer and DJ taught by teachers from all around the world.</p>
     </div>
 
-  </div>
+  </div> -->
 
 
 </div>

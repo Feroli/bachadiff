@@ -27,6 +27,8 @@ import { FacebookEventsService } from '../services/facebook-events.service';
 import { Meta, Title } from '@angular/platform-browser';
 import { mergeMap } from 'rxjs/operator/mergeMap';
 import { forkJoin } from 'rxjs/observable/forkJoin';
+import { MatDialogComponent } from '../mat-dialog/mat-dialog.component';
+import { MatDialog } from '@angular/material';
 
 declare var $: any
 
@@ -51,7 +53,7 @@ const colors: any = {
   selector: 'app-events',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css'],
+  styleUrls: ['./events.component.scss'],
 
 
 })
@@ -59,7 +61,13 @@ export class EventsComponent implements OnInit {
 
   events: CalendarEvent[];
 
-  constructor(private facebookEventService: FacebookEventsService, private zone: NgZone, meta: Meta, title: Title) {
+  constructor(private facebookEventService: FacebookEventsService,
+    private zone: NgZone,
+    private meta: Meta,
+    private title: Title,
+    public dialog: MatDialog) {
+
+
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff Events Page');
 
 
@@ -123,8 +131,15 @@ export class EventsComponent implements OnInit {
       this.modalBody = this.modalBody.concat(paragraph + '<br/>');
     }
 
-    $('.modal').modal();
-    $('#modal1').modal('open');
+    let dialogRef = this.dialog.open(MatDialogComponent, {
+      data: this.modalBody
+    });
+
+    console.log('clicked');
+
+
+    // $('.modal').modal();
+    // $('#modal1').modal('open');
   }
 
   eventTimesChanged({
