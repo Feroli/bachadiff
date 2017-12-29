@@ -134,12 +134,6 @@ export class EventsComponent implements OnInit {
     let dialogRef = this.dialog.open(MatDialogComponent, {
       data: this.modalBody
     });
-
-    console.log('clicked');
-
-
-    // $('.modal').modal();
-    // $('#modal1').modal('open');
   }
 
   eventTimesChanged({
@@ -183,9 +177,10 @@ export class EventsComponent implements OnInit {
 
     const bachadiffEvents = this.facebookEventService.getFacebookEventsFromPage('Bachadiff');
     const bosEvents = this.facebookEventService.getFacebookEventsFromPage('BachataOnSaturday');
-    const salsaSouls = this.facebookEventService.getFacebookEventsFromPage('SalsaSoulsBristol')
+    const salsaSouls = this.facebookEventService.getFacebookEventsFromPage('SalsaSoulsBristol');
+    const dancingFever = this.facebookEventService.getFacebookEventsFromPage('dancingfever');
 
-    forkJoin([bachadiffEvents, bosEvents, salsaSouls]).subscribe(events => {
+    forkJoin([bachadiffEvents, bosEvents, salsaSouls, dancingFever]).subscribe(events => {
       this.events = [];
 
       for (let eventGroup of events) {

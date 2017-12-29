@@ -1,5 +1,6 @@
 @import '~themes/colours';
 
+
 div {
   text-align: center;
   margin-top: 10%;
@@ -7,6 +8,8 @@ div {
 
 #main-question {
   font-size: 100px;
+  line-height: 1em;
+
 }
 
 mat-icon {

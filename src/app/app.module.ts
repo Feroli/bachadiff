@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, } from '@angular/common/http';
+import { TransferHttpCacheModule } from '@nguniversal/common'
 import { CalendarModule } from 'angular-calendar';
-import { TransferHttpCacheModule } from '@nguniversal/common';
+import { FlexLayoutModule } from '@angular/flex-layout';;
 
 import {
   MatGridListModule,
   MatButtonModule,
+  MatTooltipModule,
   MatToolbarModule,
   MatMenuModule,
   MatIconModule,
@@ -63,17 +65,20 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
     }),
     BrowserTransferStateModule,
     MatGridListModule,
+    MatTooltipModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
 
   exports: [
     MatGridListModule,
     MatButtonModule,
+    MatTooltipModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

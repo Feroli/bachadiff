@@ -4,9 +4,19 @@ div > p {
   text-align: center;
 }
 
-.row {
-  margin-top:5%;
-  padding-top:2%;
+img {
+  background-size: cover;
+  height: 200px;;
+}
+
+
+.profile_card {
+  width: 200px;
+  height: 350px;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+
 }
 
 .vision_container {
@@ -17,18 +27,15 @@ div > p {
 }
 
 
-.about-image {
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
+
+.card {
   border: 5px solid rgba(216,27,96, .5);
   cursor: pointer;
-
 }
 
-.about-image:hover {
-  border: 5px solid #d81b60;
+.card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 5px solid #d81b60;
 
 }
 

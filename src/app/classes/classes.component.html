@@ -1,18 +1,52 @@
-<div class="center-align">
-  <h2 class="question">Class Structure</h2>
+<div>
+  <h2 class="mat-display-3 page-title">Class Structure</h2>
   <hr class="">
+
+  <div class="container">
+
+  <mat-grid-list cols="4" rowHeight="450px" fxflex fxlayout="row" fxlayout.sm="column">
+    <mat-grid-tile [colspan]="2" [rowspan]="1" fxflex>
+      <a href="https://www.facebook.com/BachaDiff/" target="_blank">
+            <img class="generic_poster z-depth-1"
+                [ngClass]="hover_poster"
+                src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg"
+                (mouseenter)="mouseEnter($event)"
+                (mouseleave)="mouseLeave($event)" alt="poster of classes">
+          </a>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1" fxflex>
+      <div class="class_container">
+        <h5 class="setup_header">Set Up</h5>
+        <hr class="classes_hr z-depth-1">
+
+        <div class="class_setup">
+          <div id="times">
+            <p>7pm Register</p>
+            <p>7:15pm Class Start</p>
+            <p>9pm Social Starts!!</p>
+          </div>
+          <div id="prices">
+            <p>£7 (£5 NUS) 1 Class</p>
+            <p>£8 (£7 NUS) 2 Classes</p>
+            <p>Free Social until late</p>
+          </div>
+
+          <!-- <div class="col s12 center-align hide-on-med-and-down" style="margin-left: -3%;">
+            <button class="btn accent" (click)="findUs()">Find Us</button>
+          </div> -->
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  </div>
 
   <div class="container">
 
     <div class="row">
       <div class="col s12 m6">
-        <a href="https://www.facebook.com/BachaDiff/" target="_blank">
-          <img class="generic_poster z-depth-1"
-              [ngClass]="hover_poster"
-              src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg"
-              (mouseenter)="mouseEnter($event)"
-              (mouseleave)="mouseLeave($event)" alt="poster of classes">
-        </a>
+
       </div>
       <div class="col s12 m6">
         <h5 class="setup_header">Set Up</h5>

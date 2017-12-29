@@ -29,16 +29,16 @@ export class AboutComponent implements OnInit {
     night.`;
 
     meta.addTags([
-      { property: "og:url", content: "http://bachadiff.co.uk/about/" },
-      { property: "og:type", content: "Bachadiff bachata about page" },
-      { property: "og:title", content: "Bachadiff Bachata Dance Classes in Cardiff About Page" },
-      { property: "og:description", content: description },
-      { property: "og:image", content: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg" },
-      { name: "fb:app_id", content: "1778581352446394" },
+      { property: 'og:url', content: 'http://bachadiff.co.uk/about/' },
+      { property: 'og:type', content: 'Bachadiff bachata about page' },
+      { property: 'og:title', content: 'Bachadiff Bachata Dance Classes in Cardiff About Page' },
+      { property: 'og:description', content: description },
+      { property: 'og:image', content: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg' },
+      { name: 'fb:app_id', content: '1778581352446394' },
       { name: 'author', content: 'Fenando Ania' },
       { name: 'keywords', content: 'Bachata, bachadiff, cardiff, wales, salsa, latin, dance, classes' },
       { name: 'description', content: 'Meet the bachadiff team and our vision, and learn more about each dancer and their influence in the Cardiff Bachata dance scene!' },
-      { name: "fragment", content: "!" },
+      { name: 'fragment', content: '!' },
 
 
 
@@ -62,22 +62,25 @@ export class AboutComponent implements OnInit {
     this.profilePictures = [
       {
         id: uuid(),
-        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg",
-        title: "Fernando Ania",
+        image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg',
+        title: 'Fernando Ania',
+        description: 'Bachata and Salsa Lover, Beatboxer and a great cook!',
         link: this.fernandoFacebookUrl
       },
       {
 
         id: uuid(),
-        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/daniel.jpg",
-        title: "Daniel Chong",
+        image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/daniel.jpg',
+        title: 'Daniel Chong',
+        description: 'Bachata Performer with unique style ChongChata, surprisingly flexible',
         link: this.danielFacebookUrl
 
       },
       {
         id: uuid(),
-        image: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg",
-        title: "DJ JAY",
+        image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg',
+        title: 'DJ JAY',
+        description: 'Crazy bachata and salsa guy, known as DJ Jay behind the deck',
         link: this.jasonFacebookUrl
 
 

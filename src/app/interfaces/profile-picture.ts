@@ -3,5 +3,6 @@ export interface ProfilePicture {
   id: number,
   image: string,
   title: string,
-  link: string
+  description?: string
+  link?: string,
 }

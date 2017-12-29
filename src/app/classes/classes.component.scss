@@ -5,6 +5,10 @@
   transition: all 0.3s ease-in;
 
 }
+
+.class_container {
+ width: 100%;
+}
 .hover_poster {
 
 }
@@ -15,18 +19,18 @@
   background-color: #d81b60;
 }
 
-.container {
-  margin-top: 5%;
-}
+
 
 .class_setup {
-text-align: left;
-margin-left: 10%;
-color: gray;
+  color: gray;
+  width: 80%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .setup_header {
-  /* text-align: left; */
+  text-align: center;
 }
 
 .location_text {
@@ -36,6 +40,14 @@ color: gray;
   margin-top: 5%;
   width: 100%;
   padding-bottom: 5%;
+}
+
+#times {
+  float: left;
+}
+
+#prices {
+  float: right;
 }
 
 agm-map {
