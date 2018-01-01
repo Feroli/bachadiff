@@ -1,14 +1,30 @@
+@import '~themes/colours';
+
 ul {
   width: 80%;
   margin-top: 2em;
 }
 
+
+
 .photos {
   text-align: center;
+  flex-wrap: wrap;
+  margin-top: 2%;
 
 }
 .photos > div {
-  width: 100%;
+  // width: 80%;
+}
+
+.tab-content {
+  // height: 500px;
+}
+
+.tab-group {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .media_container {
@@ -19,19 +35,23 @@ ul {
 }
 
 .gallery_pic {
-  border: 4px solid white;
+  border: 5px solid white;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
+  width: 200px;
+  transition: all 0.3s ease-in;
 }
 
 .gallery_pic:hover {
   cursor: pointer;
+  border: 5px solid $accent;
+
+
 }
 
 .image_container {
-  margin-left: auto;
-  margin-right: auto;
+
 }
 
 .bachadiff_vid {
@@ -46,8 +66,8 @@ ul {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
 }
 
-.row {
+#album-title {
+  text-align: center;
 }

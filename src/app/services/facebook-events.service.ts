@@ -205,9 +205,15 @@ export class FacebookEventsService {
           let title = dataItem['name'];
           let meta = dataItem['description'];
 
+          let smallFirstWordOfTitle = title.split(' ')[0].toLowerCase();
+
           let eventTimes = dataItem['event_times'];
 
+
+
           if (typeof eventTimes !== 'undefined') {
+            ;
+
 
             for (let reocurringEvent of eventTimes) {
 
@@ -222,6 +228,9 @@ export class FacebookEventsService {
                 meta: meta,
                 cssClass: `${dataItem['id']} ${eventColour}`
               }
+              calendarEvents.push(calendarEvent);
+
+
             }
           } else {
 
@@ -233,10 +242,11 @@ export class FacebookEventsService {
               meta: meta,
               cssClass: `${dataItem['id']} ${eventColour}`
             }
+            calendarEvents.push(calendarEvent);
+
           }
 
 
-          calendarEvents.push(calendarEvent);
 
         }
         return calendarEvents;

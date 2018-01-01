@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "node_modules/angular2-lightbox/*.component.ts",
+    "node_modules/angular2-lightbox/*.service.ts",
+    "node_modules/angular2-lightbox/*.module.ts"
+    ]
 }

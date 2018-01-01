@@ -12,11 +12,15 @@ import {
   MatButtonModule,
   MatTooltipModule,
   MatToolbarModule,
+  MatTabsModule,
   MatMenuModule,
   MatIconModule,
   MatCardModule,
   MatDialogModule
 } from '@angular/material';
+
+import { LightboxModule } from 'angular2-lightbox';
+
 
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
@@ -68,17 +72,20 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
     MatTooltipModule,
     MatButtonModule,
     MatMenuModule,
+    MatTabsModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LightboxModule
   ],
 
   exports: [
     MatGridListModule,
     MatButtonModule,
     MatTooltipModule,
+    MatTabsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,

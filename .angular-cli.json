@@ -21,7 +21,8 @@
       "styles": [
         "styles.scss",
         "themes/theme.scss",
-        "../node_modules/angular-calendar/css/angular-calendar.css"
+        "../node_modules/angular-calendar/css/angular-calendar.css",
+        "../node_modules/angular2-lightbox/lightbox.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

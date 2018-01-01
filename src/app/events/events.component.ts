@@ -131,8 +131,19 @@ export class EventsComponent implements OnInit {
       this.modalBody = this.modalBody.concat(paragraph + '<br/>');
     }
 
+    let eventData = {
+      eventId: this.eventId,
+      title: this.modalHeader,
+      description: this.modalBody
+    };
+
+
+
+
+
+
     let dialogRef = this.dialog.open(MatDialogComponent, {
-      data: this.modalBody
+      data: eventData
     });
   }
 

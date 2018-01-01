@@ -1,10 +1,11 @@
-<div id="modal1" class="modal modal1 modal-fixed-footer">
+<h4 class="" mat-dialog-title>{{data.title}}</h4>
+<hr>
+<mat-dialog-content>
   <div class="modal-content">
-    <h4 class="modal-header">{{modalHeader}}</h4>
-    <p class="modal-description" [innerHTML]="data">
-
+    <p class="modal-description" [innerHTML]="data.description">
   </div>
-  <div class="modal-footer">
-    <a href="https://www.facebook.com/{{eventId}}" target="_blank" class="modal-action modal-close waves-effect waves-green btn-flat ">See the event on facebook</a>
-  </div>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button color="accent" (click)="goToEvent(data.eventId)">See Event On Facebook</button>
+</mat-dialog-actions>

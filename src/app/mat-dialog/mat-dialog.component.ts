@@ -16,6 +16,11 @@ export class MatDialogComponent implements OnInit {
   }
 
 
+  goToEvent(link: string) {
+    window.open(`https://facebook.com/${link}`, '_blank');
+  };
+
+
   ngOnInit() {
   }
 

@@ -1,3 +1,6 @@
+@import '~themes/colours';
+
+
 .generic_poster {
   height: 25em;
   width: 19em;
@@ -10,7 +13,7 @@
  width: 100%;
 }
 .hover_poster {
-
+  border: 8px solid $accent;
 }
 
 .classes_hr {
@@ -23,7 +26,7 @@
 
 .class_setup {
   color: gray;
-  width: 80%;
+  width: 100%;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
@@ -43,11 +46,10 @@
 }
 
 #times {
-  float: left;
+
 }
 
 #prices {
-  float: right;
 }
 
 agm-map {

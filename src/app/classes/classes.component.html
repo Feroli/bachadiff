@@ -4,77 +4,44 @@
 
   <div class="container">
 
-  <mat-grid-list cols="4" rowHeight="450px" fxflex fxlayout="row" fxlayout.sm="column">
-    <mat-grid-tile [colspan]="2" [rowspan]="1" fxflex>
-      <a href="https://www.facebook.com/BachaDiff/" target="_blank">
-            <img class="generic_poster z-depth-1"
-                [ngClass]="hover_poster"
-                src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg"
-                (mouseenter)="mouseEnter($event)"
-                (mouseleave)="mouseLeave($event)" alt="poster of classes">
-          </a>
-    </mat-grid-tile>
+    <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="space-around center" fxLayoutAlign.xs="center stretch">
+      <div  matTooltip="Visit Facebook Page!" matTooltipPosition="above" class="poster">
+        <a   href="https://www.facebook.com/BachaDiff/" target="_blank">
+        <img class="mat-elevation-z4 generic_poster"
+            [ngClass]="hover_poster"
+            src="https://s3.eu-west-2.amazonaws.com/bachadiff-assets/genericPoster.jpg"
+            (mouseenter)="mouseEnter($event)"
+            (mouseleave)="mouseLeave($event)" alt="poster of classes"></a>
+      </div>
 
-    <mat-grid-tile [colspan]="2" [rowspan]="1" fxflex>
-      <div class="class_container">
-        <h5 class="setup_header">Set Up</h5>
-        <hr class="classes_hr z-depth-1">
+      <div style="width: 100%">
+        <h2 style="text-align:center">Class Setup</h2>
+         <hr />
+      <div fxLayout="row" fxLayoutAlign="space-around center" class="class_setup">
 
-        <div class="class_setup">
-          <div id="times">
-            <p>7pm Register</p>
-            <p>7:15pm Class Start</p>
-            <p>9pm Social Starts!!</p>
-          </div>
-          <div id="prices">
-            <p>£7 (£5 NUS) 1 Class</p>
-            <p>£8 (£7 NUS) 2 Classes</p>
-            <p>Free Social until late</p>
-          </div>
-
-          <!-- <div class="col s12 center-align hide-on-med-and-down" style="margin-left: -3%;">
-            <button class="btn accent" (click)="findUs()">Find Us</button>
-          </div> -->
+        <div id="times">
+          <p>7pm Register</p>
+          <p>7:15pm Class Start</p>
+          <p>9pm Social Starts!!</p>
+        </div>
+        <div id="prices">
+          <p>£7 (£5 NUS) 1 Class</p>
+          <p>£8 (£7 NUS) 2 Classes</p>
+          <p>Free Social until late</p>
         </div>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+      </div>
+
+    </div>
 
   </div>
 
   <div class="container">
 
-    <div class="row">
-      <div class="col s12 m6">
-
-      </div>
-      <div class="col s12 m6">
-        <h5 class="setup_header">Set Up</h5>
-        <hr class="classes_hr z-depth-1">
-
-        <div class="row class_setup">
-          <div class="col s6">
-            <p>7pm Register</p>
-            <p>7:15pm Class Start</p>
-            <p>9pm Social Starts!!</p>
-          </div>
-          <div class="col s6">
-            <p>£7 (£5 NUS) 1 Class</p>
-            <p>£8 (£7 NUS) 2 Classes</p>
-            <p>Free Social until late</p>
-          </div>
-
-          <div class="col s12 center-align hide-on-med-and-down" style="margin-left: -3%;">
-            <button class="btn accent" (click)="findUs()">Find Us</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="s12 location">
       <div class="location_text">
-        <h5>Find Us</h5>
-        <p>Oneill's 85-87, St Mary street</p>
+        <p>Oneill's 85-87, St Mary street, Cardiff</p>
       </div>
 
       <div class="z-depth-2">
@@ -85,5 +52,4 @@
     </div>
 
   </div>
-
 </div>

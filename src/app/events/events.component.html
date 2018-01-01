@@ -3,59 +3,42 @@
   <hr class="">
 
 
-  <div class="row">
-    <div class="calendar_control s12">
-      <div class="btn grey lighten-5"  mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" >
+  <div class="">
+    <div class="calendar_control">
+      <a mat-raised-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
         Previous
-      </div>
+      </a>
 
-      <div class="btn grey lighten-5 " id="todayEvent" #todayEvent mwlCalendarToday [(viewDate)]="viewDate">
+      <a mat-raised-button id="todayEvent" #todayEvent mwlCalendarToday [(viewDate)]="viewDate">
         Today
-      </div>
-      <div class="btn grey lighten-5" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" >
+      </a>
+      <a mat-raised-button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
         Next
-      </div>
-
+      </a>
     </div>
 
-    <div class="center-align s12">
-      <h5>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h5>
+    <div class="date">
+      <h5 class="mat-headline">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h5>
     </div>
 
   </div>
   <br>
-  <div class="center-align calendar">
-      <ng-template #customCellTemplate let-day="day" let-locale="locale">
-          <div class="cal-cell-top">
-          <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
+  <div class="calendar">
+    <ng-template #customCellTemplate let-day="day" let-locale="locale">
+      <div class="cal-cell-top">
+        <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
 
-          </div>
-          <!-- <small style="margin: 5px"> {{ day.events | json }}</small> -->
-          <span class="cal-day-number ">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+      </div>
+      <!-- <small style="margin: 5px"> {{ day.events | json }}</small> -->
+      <span class="cal-day-number ">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
 
 
-        </ng-template>
+    </ng-template>
 
-    <mwl-calendar-month-view [viewDate]="viewDate"
-    class="z-depth-5"
-                             [events]="events"
-                             (dayClicked)="dayClicked($event.day)"
-                             [refresh]="refresh"
-                             [cellTemplate]="customCellTemplate"
-                             (eventClicked)="handleEvent('Clicked', $event.event)">
+    <mwl-calendar-month-view [viewDate]="viewDate" class="z-depth-5" [events]="events" (dayClicked)="dayClicked($event.day)"
+      [refresh]="refresh" [cellTemplate]="customCellTemplate" (eventClicked)="handleEvent('Clicked', $event.event)">
     </mwl-calendar-month-view>
 
   </div>
 
 </div>
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal1 modal-fixed-footer">
-      <div class="modal-content">
-        <h4 class="modal-header">{{modalHeader}}</h4>
-        <p class="modal-description" [innerHTML]="modalBody">
-
-      </div>
-      <div class="modal-footer">
-        <a href="https://www.facebook.com/{{eventId}}" target="_blank" class="modal-action modal-close waves-effect waves-green btn-flat ">See the event on facebook</a>
-      </div>
-    </div>

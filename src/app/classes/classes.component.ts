@@ -37,16 +37,16 @@ export class ClassesComponent implements OnInit {
 
   findUs() {
     $('html, body').animate({
-      scrollTop: $('.location_text').offset().top
+      // scrollTop: $('.location_text').offset().top
     })
   }
   mouseEnter($event: MouseEvent) {
-    this.hover_poster = $event.type == 'mouseenter' ? 'hover_poster z-depth-5' : '';
+    this.hover_poster = $event.type == 'mouseenter' ? 'hover_poster mat-elevation-z8' : '';
 
   }
 
   mouseLeave($event: MouseEvent) {
-    this.hover_poster = $event.type == 'mouseleave' ? '' : 'hover_poster z-depth-5';
+    this.hover_poster = $event.type == 'mouseleave' ? '' : 'hover_poster mat-elevation-z8';
 
   }
 
