@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { routerTransition } from '../router.animations';
 
 @Component({
@@ -8,6 +8,7 @@ import { routerTransition } from '../router.animations';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+  @Input('sidenav') sidenav;
 
   constructor() { }
 

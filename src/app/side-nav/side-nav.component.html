@@ -1,9 +1,50 @@
-
-  <ul id="slide-out" class="side-nav">
+<!-- <ul id="slide-out" class="side-nav">
           <li><a routerLink="about" routerLinkActive="active">About</a></li>
           <li><a routerLink="classes" routerLinkActive="active">Classes</a></li>
           <li><a routerLink="events" routerLinkActive="active">Events</a></li>
           <li><a routerLink="gallery" routerLinkActive="active">Gallery</a></li>
           <li><a routerLink="contactUs" routerLinkActive="active">Contact Us</a></li>
     </ul>
-    <div data-activates="slide-out" class="button-collapse btn-flat"><i class="material-icons burger">menu</i></div>
+    <div data-activates="slide-out" class="button-collapse btn-flat"><i class="material-icons burger">menu</i></div> -->
+    <!-- <div fxShow fxHide.gt-sm="true">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon class="mat-24" >menu</mat-icon>
+        </button>￼
+      </div> -->
+
+      <!-- <mat-sidenav-layout >
+          <mat-sidenav #sidenav mode="side" class="app-sidenav">
+          <mat-nav-list>
+              <a mat-list-item href="page1.html">Page 1</a>
+              <a mat-list-item href="page2.html">Page 2</a>
+              <a mat-list-item href="page3.html">Page 3</a>
+          </mat-nav-list>
+              </mat-sidenav>
+              <app-side-nav></app-side-nav>
+          <div class="app-content">
+              Example Content area<br><br><br><br><br><br><br>
+          </div>
+      </mat-sidenav-layout> -->
+
+      <div class="example-container" >
+          <app-side-nav></app-side-nav>
+          <mat-toolbar color="primary" class="example-toolbar">
+              <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+              <h1 class="example-app-name">Responsive App</h1>
+            </mat-toolbar>
+
+          <mat-sidenav-container class="example-sidenav-container">
+            <mat-sidenav #sidenav>
+              <mat-nav-list>
+                <div>jjjj</div>
+                <div>jjjj</div>
+                <div>jjjj</div>
+                <div>jjjj</div>
+              </mat-nav-list>
+            </mat-sidenav>
+          </mat-sidenav-container>
+        </div>
+
+
+
+

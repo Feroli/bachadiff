@@ -13,7 +13,9 @@ import {
   MatTooltipModule,
   MatToolbarModule,
   MatTabsModule,
+  MatListModule,
   MatMenuModule,
+  MatSidenavModule,
   MatIconModule,
   MatCardModule,
   MatDialogModule
@@ -72,6 +74,8 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
     MatTooltipModule,
     MatButtonModule,
     MatMenuModule,
+    MatListModule,
+    MatSidenavModule,
     MatTabsModule,
     MatToolbarModule,
     MatIconModule,
@@ -84,7 +88,9 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
   exports: [
     MatGridListModule,
     MatButtonModule,
+    MatListModule,
     MatTooltipModule,
+    MatSidenavModule,
     MatTabsModule,
     MatMenuModule,
     MatToolbarModule,

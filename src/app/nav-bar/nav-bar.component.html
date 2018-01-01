@@ -1,15 +1,24 @@
 <mat-toolbar class="mat-elevation-z2" color="primary">
   <mat-toolbar-row>
-    <a routerLink="/home" class="brand-logo"routerLinkActive="Active"><span>BACHADIFF</span></a>
+    <a routerLink="/home" class="brand-logo" routerLinkActive="Active"><span>BACHADIFF</span></a>
     <span class="spacer"></span>
 
-    <button mat-button routerLink="about" routerLinkActive="active"><a ><span class="nav_link">About</span></a></button>
-    <button mat-button routerLink="classes" routerLinkActive="active"><a ><span class="nav_link">Classes</span></a></button>
-    <button mat-button routerLink="events" routerLinkActive="active"><a ><span class="nav_link">Events</span></a></button>
-    <button mat-button routerLink="gallery" routerLinkActive="active"><a ><span class="nav_link">Gallery</span></a></button>
-    <button mat-button routerLink="contactUs" routerLinkActive="active"><a ><span class="nav_link">Contact Us</span></a></button>
+    <!-- <div fxShow fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon class="md-24" >menu</mat-icon>
+        </button>￼
+      </div> -->
+
+    <div fxShow fxHide.lt-md="false">
+      <button mat-button routerLink="about" routerLinkActive="active"><a ><span class="nav_link">About</span></a></button>
+      <button mat-button routerLink="classes" routerLinkActive="active"><a ><span class="nav_link">Classes</span></a></button>
+      <button mat-button routerLink="events" routerLinkActive="active"><a ><span class="nav_link">Events</span></a></button>
+      <button mat-button routerLink="gallery" routerLinkActive="active"><a ><span class="nav_link">Gallery</span></a></button>
+      <button mat-button routerLink="contactUs" routerLinkActive="active"><a ><span class="nav_link">Contact Us</span></a></button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
 
 <div [@routerTransition]="getState(o)">
   <router-outlet #o="outlet"></router-outlet>
