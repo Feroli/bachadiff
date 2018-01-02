@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
   private danielFacebookUrl = 'https://www.facebook.com/daniel.chong.908';
   private jasonFacebookUrl = 'https://www.facebook.com/jasondjjay.bachata.7';
 
-  private profilePictures: ProfilePicture[];
+  profilePictures: ProfilePicture[];
 
   visionText: string;
 
@@ -50,9 +50,9 @@ export class AboutComponent implements OnInit {
   };
 
   findUs() {
-    $('html, body').animate({
-      scrollTop: $('.vision_container').offset().top
-    })
+    // $('html, body').animate({
+    //   scrollTop: $('.vision_container').offset().top
+    // })
   }
 
   ngOnInit() {
