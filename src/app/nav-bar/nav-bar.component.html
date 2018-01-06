@@ -4,7 +4,7 @@
     <span class="spacer"></span>
 
     <div fxShow fxHide.gt-sm="true">
-        <button mat-icon-button>
+        <button mat-icon-button (click)="navOpen()">
             <mat-icon class="md-24" >menu</mat-icon>
         </button>￼
       </div>
@@ -14,13 +14,13 @@
       <button mat-button routerLink="classes" routerLinkActive="active"><a ><span class="nav_link">Classes</span></a></button>
       <button mat-button routerLink="events" routerLinkActive="active"><a ><span class="nav_link">Events</span></a></button>
       <button mat-button routerLink="gallery" routerLinkActive="active"><a ><span class="nav_link">Gallery</span></a></button>
-      <button mat-button routerLink="contactUs" routerLinkActive="active"><a ><span class="nav_link">Contact Us</span></a></button>
+      <button mat-button routerLink="contactus" routerLinkActive="active"><a ><span class="nav_link">Contact Us</span></a></button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
 
 
-<div [@routerTransition]="getState(o)">
-  <router-outlet #o="outlet"></router-outlet>
-</div>
+<!-- <div [@routerTransition]="getState(o)">
+<router-outlet #o="outlet"></router-outlet>
+</div> -->

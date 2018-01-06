@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'classes', component: ClassesComponent, data: { state: 'classes' } },
   { path: 'events', component: EventsComponent, data: { state: 'events' } },
   { path: 'gallery', component: GalleryComponent, data: { state: 'gallery' } },
-  { path: 'contactUs', component: ContactUsComponent, data: { state: 'contactUs' } },
+  { path: 'contactus', component: ContactUsComponent, data: { state: 'contactus' } },
 
   {
     path: '',

@@ -8,6 +8,7 @@ import { CalendarModule } from 'angular-calendar';
 import { FlexLayoutModule } from '@angular/flex-layout';;
 
 import {
+  MatSidenavModule,
   MatExpansionModule,
   MatGridListModule,
   MatButtonModule,
@@ -71,6 +72,7 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
       apiKey: 'AIzaSyC90CDCThfCncC8hQS21pIXzI7Znn65RgQ'
     }),
     BrowserTransferStateModule,
+    MatSidenavModule,
     MatExpansionModule,
     MatGridListModule,
     MatTooltipModule,
@@ -87,6 +89,7 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
   ],
 
   exports: [
+    MatSidenavModule,
     MatExpansionModule,
     MatGridListModule,
     MatButtonModule,
