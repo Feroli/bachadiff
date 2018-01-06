@@ -138,7 +138,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.facebookService.getBachadiffFacebookLastClassPictures().subscribe(res => {
       this.bachataPicsArray = res;
       this.state.set(LAST_CLASS_PICTURES_KEY, res as any);
-      console.log(this.bachataPicsArray);
       this.createAlbum();
 
     });
@@ -148,7 +147,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.facebookService.getBachadiffAlbumNames().subscribe(res => {
       this.currentTabId = res[0]['id'];
       this.bachataAlbumHeaderNames = res;
-
       this.state.set(ALBUM_NAMES_KEY, res as any);
     });
   }

@@ -3,7 +3,8 @@
   <hr class="">
 
 
-  <div class="">
+
+  <div class="" fxShow fxHide.lt-sm="true">
     <div class="calendar_control">
       <a mat-raised-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
         Previous
@@ -21,24 +22,65 @@
       <h5 class="mat-headline">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h5>
     </div>
 
+    <br>
+    <div class="calendar">
+      <ng-template #customCellTemplate let-day="day" let-locale="locale">
+        <div class="cal-cell-top">
+          <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
+
+        </div>
+        <!-- <small style="margin: 5px"> {{ day.events | json }}</small> -->
+        <span class="cal-day-number ">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+
+
+      </ng-template>
+
+      <mwl-calendar-month-view [viewDate]="viewDate" class="z-depth-5" [events]="events" (dayClicked)="dayClicked($event.day)"
+        [refresh]="refresh" [cellTemplate]="customCellTemplate" (eventClicked)="handleEvent('Clicked', $event.event)">
+      </mwl-calendar-month-view>
+
+    </div>
   </div>
-  <br>
-  <div class="calendar">
-    <ng-template #customCellTemplate let-day="day" let-locale="locale">
-      <div class="cal-cell-top">
-        <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
 
-      </div>
-      <!-- <small style="margin: 5px"> {{ day.events | json }}</small> -->
-      <span class="cal-day-number ">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+  <div fxShow fxHide.gt-xs="true">
+
+    <div *ngFor="let generalEvent of generalEvents">
+
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2 class="mat-headline">{{generalEvent[0].title | slice: 0: 20}}</h2>
+
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-accordion>
+
+          <div *ngFor="let event of generalEvent">
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{event.title}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div fxFill>
+                <p fxFlex=20>
+                  <strong>Date:</strong> {{event.start | date: 'dd/MM/yy'}}
+                </p>
+                <a href="https://www.facebook.com/pg/BachaDiff/events/" fxFlex mat-button color="accent">Facebook</a>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </mat-accordion>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
 
 
-    </ng-template>
-
-    <mwl-calendar-month-view [viewDate]="viewDate" class="z-depth-5" [events]="events" (dayClicked)="dayClicked($event.day)"
-      [refresh]="refresh" [cellTemplate]="customCellTemplate" (eventClicked)="handleEvent('Clicked', $event.event)">
-    </mwl-calendar-month-view>
 
   </div>
+
 
 </div>

@@ -32,7 +32,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   goToBachaDiff() {
-    // window.open(this.bachaDiffFacebookUrl, '_blank')
+    window.open(this.bachaDiffFacebookUrl, '_blank')
 
   }
 

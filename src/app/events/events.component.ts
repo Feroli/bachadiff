@@ -61,6 +61,9 @@ export class EventsComponent implements OnInit {
 
   events: CalendarEvent[];
 
+  generalEvents: Array<object>[];
+  panelOpenState: boolean = false;
+
   constructor(private facebookEventService: FacebookEventsService,
     private zone: NgZone,
     private meta: Meta,
@@ -193,9 +196,12 @@ export class EventsComponent implements OnInit {
 
     forkJoin([bachadiffEvents, bosEvents, salsaSouls, dancingFever]).subscribe(events => {
       this.events = [];
+      this.generalEvents = [];
 
       for (let eventGroup of events) {
+
         this.events = this.events.concat(eventGroup);
+        this.generalEvents.push(eventGroup)
       }
 
       this.refresh.next();
