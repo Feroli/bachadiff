@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ProfilePicture } from '../interfaces/profile-picture';
 import { v4 as uuid } from 'uuid';

@@ -9,6 +9,10 @@ import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
+// remove window not defined error
+var window = global;
+global['window'] = window;
+
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
