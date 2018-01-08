@@ -17,7 +17,6 @@ import {
   MatTabsModule,
   MatListModule,
   MatMenuModule,
-  MatSidenavModule,
   MatIconModule,
   MatCardModule,
   MatDialogModule

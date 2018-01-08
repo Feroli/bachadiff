@@ -1,14 +1,18 @@
-<app-nav-bar class="mat-elevation-z2" (sideNav)="sideNav.toggle()"></app-nav-bar>
 
-<mat-sidenav-container>
+<mat-sidenav-container style="z-index: 1">
+    <app-nav-bar class="mat-elevation-z2" (sideNav)="sideNav.toggle()"></app-nav-bar>
+
+
+  <mat-sidenav #sideNav class="mat-elevation-z2" mode="over" position="end">
+      <mat-nav-list>
+          <a mat-list-item routerLink="{{nav.title | lowercase}}" routerLinkActive="active" *ngFor="let nav of navItems">{{nav.title}}</a>
+        </mat-nav-list>
+  </mat-sidenav>
+
+
   <div class="text" style="min-height: 99vh">
       <div [@routerTransition]="getState(o)">
           <router-outlet #o="outlet"></router-outlet>
         </div>
   </div>
-  <mat-sidenav #sideNav class="app-sidebar side-nav-style" mode="side">
-      <mat-nav-list>
-          <a mat-list-item routerLink="{{nav.title | lowercase}}" routerLinkActive="active" *ngFor="let nav of navItems">{{nav.title}}</a>
-        </mat-nav-list>
-  </mat-sidenav>
 </mat-sidenav-container>
