@@ -145,9 +145,11 @@ export class EventsComponent implements OnInit {
 
 
 
-    let dialogRef = this.dialog.open(MatDialogComponent, {
-      data: eventData
-    });
+    // let dialogRef = this.dialog.open(MatDialogComponent, {
+    //   data: eventData
+    // });
+
+    window.open(`https://facebook.com/${this.eventId}`, '_blank');
   }
 
   eventTimesChanged({
