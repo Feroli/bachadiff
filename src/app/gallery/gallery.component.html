@@ -16,6 +16,9 @@
 
   <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Pictures of our Cardiff Bachata Classes</h5>
   <hr />
+
+  <!-- The Modal -->
+
   <mat-tab-group (selectedIndexChange)="getAlbum($event)" mat-stretch-tabs class="tab-group" color="accent">
     <mat-tab *ngFor="let header of bachataAlbumHeaderNames" label="{{header.name}}" class="tab-content" id="album-title">
       <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
@@ -23,8 +26,7 @@
           <div *ngFor="let image of bachataPicsArray; let i = index">
 
             <img flex (mouseenter)="mouseEnter($event, i)" (click)="openPic(i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" (mouseleave)="mouseLeave($event)"
-              class="gallery_pic mat-elevation-z2" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance"
-            />
+              class="gallery_pic mat-elevation-z2" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance"/>
           </div>
       </div>
     </mat-tab>

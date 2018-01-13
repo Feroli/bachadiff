@@ -63,7 +63,8 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   openPic(index) {
-    this.lightbox.open(this.album, index);
+    // this.lightbox.open(this.album, index);
+    window.open(this.album[index]["src"]);
   }
 
 
