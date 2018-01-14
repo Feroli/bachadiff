@@ -61,15 +61,15 @@
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  {{event.title}}
+                  <div fxFill>
+                    <p fxFlex=20>
+                      <strong>Date:</strong> {{event.start | date: 'dd/MM/yy'}}
+                    </p>
+                    <a href="https://www.facebook.com/pg/BachaDiff/events/" fxFlex mat-button style="height: 50%;margin-top:4%;"color="accent">Facebook</a>
+                  </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <div fxFill>
-                <p fxFlex=20>
-                  <strong>Date:</strong> {{event.start | date: 'dd/MM/yy'}}
-                </p>
-                <a href="https://www.facebook.com/pg/BachaDiff/events/" fxFlex mat-button color="accent">Facebook</a>
-              </div>
+              {{event.title}}
             </mat-expansion-panel>
           </div>
         </mat-accordion>

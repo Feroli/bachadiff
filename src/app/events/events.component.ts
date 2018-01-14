@@ -150,8 +150,6 @@ export class EventsComponent implements OnInit {
         data: eventData
       });
     } else {
-
-
       window.open(`https://facebook.com/${this.eventId}`, '_blank');
 
     }
@@ -176,9 +174,6 @@ export class EventsComponent implements OnInit {
     this.modalHeader = event.title;
     this.modalBody = event.meta;
 
-
-    $('.modal').modal();
-    $('#modal1').modal('open');
 
   }
 
@@ -223,8 +218,6 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
-
-
   }
 
 }
