@@ -4,7 +4,7 @@ import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { Observable } from 'rxjs/Observable';
 import { Title, Meta } from '@angular/platform-browser';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
-import { isPlatformServer } from '@angular/common';
+import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { Lightbox, IAlbum } from 'angular2-lightbox';
 
 declare var $;
@@ -64,7 +64,12 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   openPic(index) {
     // this.lightbox.open(this.album, index);
+    if (isPlatformBrowser(this.platformId)) {
+      console.log(this.platformId);
+
+      // Client only code.
     window.open(this.album[index]["src"]);
+   }
   }
 
 
