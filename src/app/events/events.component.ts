@@ -159,7 +159,7 @@ export class EventsComponent implements OnInit {
   }
 
   eventTimesChanged({
-      event,
+    event,
     newStart,
     newEnd
     }: CalendarEventTimesChangedEvent): void {
@@ -173,8 +173,6 @@ export class EventsComponent implements OnInit {
     this.eventId = event.cssClass.split(' ')[0]
     this.modalHeader = event.title;
     this.modalBody = event.meta;
-
-
   }
 
   addEvent(): void {
