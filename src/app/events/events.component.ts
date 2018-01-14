@@ -4,7 +4,9 @@ import {
   TemplateRef,
   NgZone,
   ElementRef,
-  Renderer2
+  Renderer2,
+  PLATFORM_ID,
+  Inject
 } from '@angular/core';
 
 import {
@@ -29,6 +31,7 @@ import { mergeMap } from 'rxjs/operator/mergeMap';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 import { MatDialogComponent } from '../mat-dialog/mat-dialog.component';
 import { MatDialog } from '@angular/material';
+import { isPlatformBrowser } from '@angular/common';
 
 declare var $: any
 
@@ -65,6 +68,7 @@ export class EventsComponent implements OnInit {
   panelOpenState: boolean = false;
 
   constructor(private facebookEventService: FacebookEventsService,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private zone: NgZone,
     private meta: Meta,
     private title: Title,
@@ -140,16 +144,20 @@ export class EventsComponent implements OnInit {
       description: this.modalBody
     };
 
+    if (isPlatformBrowser(this.platformId)) {
+
+      let dialogRef = this.dialog.open(MatDialogComponent, {
+        data: eventData
+      });
+    } else {
+
+
+      window.open(`https://facebook.com/${this.eventId}`, '_blank');
+
+    }
 
 
 
-
-
-    // let dialogRef = this.dialog.open(MatDialogComponent, {
-    //   data: eventData
-    // });
-
-    window.open(`https://facebook.com/${this.eventId}`, '_blank');
   }
 
   eventTimesChanged({
