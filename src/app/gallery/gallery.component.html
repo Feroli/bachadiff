@@ -25,8 +25,10 @@
 
           <div *ngFor="let image of bachataPicsArray; let i = index">
 
-            <img flex (mouseenter)="mouseEnter($event, i)" (click)="openPic(i)" [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" (mouseleave)="mouseLeave($event)"
+            <a (click)="openPic(i)">
+            <img flex (mouseenter)="mouseEnter($event, i)"  [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" (mouseleave)="mouseLeave($event)"
               class="gallery_pic mat-elevation-z2" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance"/>
+            </a>
           </div>
       </div>
     </mat-tab>

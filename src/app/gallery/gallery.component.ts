@@ -63,20 +63,19 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   openPic(index) {
+
     if (isPlatformBrowser(this.platformId)) {
       console.log(this.platformId);
-    // window.open(this.album[index]["src"], '_blank');
-    this.lightbox.open(this.album, index);
+      this.lightbox.open(this.album, index);
 
     } else {
-      // console.log('server');
       console.log(this.platformId);
 
-    window.open(this.album[index]["src"], '_blank');
+      window.open(this.album[index]["src"], '_blank');
 
 
     }
-   }
+  }
 
 
 
