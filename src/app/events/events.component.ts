@@ -170,9 +170,12 @@ export class EventsComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.eventId = event.cssClass.split(' ')[0]
-    this.modalHeader = event.title;
-    this.modalBody = event.meta;
+    console.log(event.cssClass);
+
+    // this.eventId = event.cssClass.split(' ')[0];
+
+    // this.modalHeader = event.title;
+    // this.modalBody = event.meta;
   }
 
   addEvent(): void {
