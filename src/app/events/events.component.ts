@@ -146,10 +146,14 @@ export class EventsComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId)) {
 
+      console.log(this.platformId);
+
       let dialogRef = this.dialog.open(MatDialogComponent, {
         data: eventData
       });
     } else {
+      console.log(this.platformId);
+
       window.open(`https://facebook.com/${this.eventId}`, '_blank');
 
     }
