@@ -65,11 +65,9 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   openPic(index) {
 
     if (isPlatformBrowser(this.platformId)) {
-      console.log(this.platformId);
       this.lightbox.open(this.album, index);
 
     } else {
-      console.log(this.platformId);
 
       window.open(this.album[index]["src"], '_blank');
 
@@ -82,14 +80,27 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   getAlbum(tabId: number) {
 
 
-    const albumId = this.bachataAlbumHeaderNames[tabId]["id"];
+    if (isPlatformBrowser(this.platformId)) {
 
-    this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
-      this.currentTabId = albumId;
-      this.bachataPicsArray = res;
-      this.createAlbum();
+      const albumId = this.bachataAlbumHeaderNames[tabId]["id"];
 
-    });
+          this.facebookService.getBachadiffAlbumPhotos(albumId).subscribe(res => {
+            this.currentTabId = albumId;
+            this.bachataPicsArray = res;
+            this.createAlbum();
+
+          });
+
+    } else {
+
+      console.log('In ', this.platformId ,' mode');
+
+
+
+
+    }
+
+
 
   }
 
