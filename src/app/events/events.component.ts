@@ -128,6 +128,8 @@ export class EventsComponent implements OnInit {
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
 
+    if (isPlatformBrowser(this.platformId)) {
+
     this.eventId = events[0].cssClass.split(' ')[0]
     this.modalHeader = events[0].title;
     this.modalBody = '';
@@ -144,7 +146,6 @@ export class EventsComponent implements OnInit {
       description: this.modalBody
     };
 
-    if (isPlatformBrowser(this.platformId)) {
 
       console.log(this.platformId);
 
@@ -152,9 +153,10 @@ export class EventsComponent implements OnInit {
         data: eventData
       });
     } else {
+
       console.log(this.platformId);
 
-      window.open(`https://facebook.com/${this.eventId}`, '_blank');
+      // window.open(`https://facebook.com/${this.eventId}`, '_blank');
 
     }
 
