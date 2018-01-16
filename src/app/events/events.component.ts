@@ -126,53 +126,38 @@ export class EventsComponent implements OnInit {
 
 
   eventDetails(event) {
-    if(isPlatformBrowser(this.platformId)) {
-      console.log(this.platformId, 'from eventdetails');
-
-    }
-    else {
-      console.log(this.platformId, 'from eventdetails');
-
-    }
-  }
-
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-
     if (isPlatformBrowser(this.platformId)) {
 
-    this.eventId = events[0].cssClass.split(' ')[0]
-    this.modalHeader = events[0].title;
-    this.modalBody = '';
+      this.eventId = event[0].cssClass.split(' ')[0]
+      this.modalHeader = event[0].title;
+      this.modalBody = '';
 
-    let splitBody = events[0].meta.trim().replace(/ /g, '&nbsp;').split('\n');
+      let splitBody = event[0].meta.trim().replace(/ /g, '&nbsp;').split('\n');
 
-    for (let paragraph of splitBody) {
-      this.modalBody = this.modalBody.concat(paragraph + '<br/>');
-    }
+      for (let paragraph of splitBody) {
+        this.modalBody = this.modalBody.concat(paragraph + '<br/>');
+      }
 
-    let eventData = {
-      eventId: this.eventId,
-      title: this.modalHeader,
-      description: this.modalBody
-    };
+      let eventData = {
+        eventId: this.eventId,
+        title: this.modalHeader,
+        description: this.modalBody
+      };
 
-
-      console.log(this.platformId);
 
       let dialogRef = this.dialog.open(MatDialogComponent, {
         data: eventData
       });
-    } else {
 
-      console.log(this.platformId);
-
-      // window.open(`https://facebook.com/${this.eventId}`, '_blank');
 
     }
+    else {
+      console.log('waiting for: ', this.platformId, 'to complete.');
 
-
-
+    }
   }
+
+  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void { }
 
   eventTimesChanged({
     event,
