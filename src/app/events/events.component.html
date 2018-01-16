@@ -4,7 +4,7 @@
 
 
 
-  <div class="" fxShow fxHide.lt-sm="true">
+  <div class="">
     <div class="calendar_control">
       <a mat-raised-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
         Previous
@@ -42,45 +42,7 @@
     </div>
   </div>
 
-  <div fxShow fxHide.gt-xs="true">
 
-    <div *ngFor="let generalEvent of generalEvents">
-
-    <mat-accordion>
-      <mat-expansion-panel  (click)="togglePannel()">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h2 class="mat-headline">{{generalEvent[0].title | slice: 0: 20}}</h2>
-
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-accordion>
-
-          <div *ngFor="let event of generalEvent">
-
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <div fxFill>
-                    <p fxFlex=20>
-                      <strong>Date:</strong> {{event.start | date: 'dd/MM/yy'}}
-                    </p>
-                    <a href="https://www.facebook.com/pg/BachaDiff/events/" fxFlex mat-button style="height: 50%;margin-top:4%;"color="accent">Facebook</a>
-                  </div>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              {{event.title}}
-            </mat-expansion-panel>
-          </div>
-        </mat-accordion>
-      </mat-expansion-panel>
-
-    </mat-accordion>
-  </div>
-
-
-
-  </div>
 
 
 </div>
