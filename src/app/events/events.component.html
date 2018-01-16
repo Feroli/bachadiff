@@ -24,8 +24,8 @@
 
     <br>
     <div class="calendar">
-      <ng-template #customCellTemplate let-day="day" let-locale="locale">
-        <div class="cal-cell-top">
+      <ng-template #customCellTemplate let-day="day" let-locale="locale" >
+        <div class="cal-cell-top" (click)="eventDetails($event)">
           <small style="margin: 5px;" class="cal_text" [ngClass]="day.events[0]?.cssClass"> {{ day.events[0]?.title }}</small>
 
         </div>

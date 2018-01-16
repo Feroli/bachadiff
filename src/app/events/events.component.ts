@@ -125,6 +125,16 @@ export class EventsComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
 
+  eventDetails(event) {
+    if(isPlatformBrowser(this.platformId)) {
+      console.log(this.platformId, 'from eventdetails');
+
+    }
+    else {
+      console.log(this.platformId, 'from eventdetails');
+
+    }
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
 
