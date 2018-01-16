@@ -47,7 +47,7 @@
     <div *ngFor="let generalEvent of generalEvents">
 
     <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  (click)="togglePannel()">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <h2 class="mat-headline">{{generalEvent[0].title | slice: 0: 20}}</h2>
@@ -58,7 +58,7 @@
 
           <div *ngFor="let event of generalEvent">
 
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div fxFill>

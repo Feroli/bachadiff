@@ -125,6 +125,17 @@ export class EventsComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
 
+  togglePannel() {
+
+    if (isPlatformBrowser(this.platformId)) {
+
+      console.log('toggle');
+
+      this.panelOpenState === false ? true : false;
+
+    } else { }
+  }
+
   eventDetails(event) {
     if (isPlatformBrowser(this.platformId)) {
 
