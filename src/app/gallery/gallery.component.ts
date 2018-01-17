@@ -37,6 +37,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   currentTabId: number;
 
   hoveredId: number;
+  selectedTabIndex: number;
 
   depth5 = 'z-depth-5';
   depth1 = 'z-depth-1';
@@ -73,6 +74,28 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
     }
+  }
+
+  leftTab() {
+    if (this.selectedTabIndex < 1) {
+      this.selectedTabIndex = 2;
+    }
+    else {
+    this.selectedTabIndex--;
+
+    }
+    this.getAlbum(this.selectedTabIndex);
+  }
+
+  rightTab() {
+    if (this.selectedTabIndex > 1) {
+      this.selectedTabIndex = 0;
+    }
+    else {
+    this.selectedTabIndex++;
+
+    }
+    this.getAlbum(this.selectedTabIndex);
   }
 
 
@@ -139,6 +162,8 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   ngOnInit() {
+
+    this.selectedTabIndex = 0;
 
     this.videos = this.state.get(VIDEOS_KEY, null as any);
     this.lastClassPictures = this.state.get(LAST_CLASS_PICTURES_KEY, null as any);
