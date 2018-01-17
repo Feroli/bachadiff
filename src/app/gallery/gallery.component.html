@@ -30,7 +30,7 @@
   </div>
 
   <mat-tab-group mat-stretch-tabs class="tab-group" color="accent">
-    <mat-tab *ngFor="let header of bachataAlbumHeaderNames" label="{{header.name}}" class="tab-content" id="album-title">
+    <mat-tab [disabled]="true" *ngFor="let header of bachataAlbumHeaderNames" label="{{header.name}}" class="tab-content" id="album-title">
       <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
 
         <div *ngFor="let image of bachataPicsArray; let i = index">
