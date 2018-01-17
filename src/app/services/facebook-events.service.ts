@@ -104,17 +104,13 @@ export class FacebookEventsService {
 
         for (let header of facebookHeaderData) {
 
-          //       if (header.name = 'profile pictures' || header.name = 'cover photos') {
-          //   continue;
-          // } else {
-
           if (header['name'] === 'Profile Pictures' || header['name'] === 'Cover Photos' || header['name'] === "Mobile Uploads") {
             continue;
           } else {
 
             albumHeaderNames.push(
               albumHeader = {
-                'name': header['name'],
+                'name': header['name'].split('|')[1],
                 'description': header['description'],
                 'id': header['id']
               }
@@ -209,11 +205,7 @@ export class FacebookEventsService {
 
           let eventTimes = dataItem['event_times'];
 
-
-
           if (typeof eventTimes !== 'undefined') {
-            ;
-
 
             for (let reocurringEvent of eventTimes) {
 

@@ -129,8 +129,6 @@ export class EventsComponent implements OnInit {
 
     if (isPlatformBrowser(this.platformId)) {
 
-      console.log('toggle');
-
       this.panelOpenState === false ? true : false;
 
     } else { }
@@ -155,11 +153,9 @@ export class EventsComponent implements OnInit {
         description: this.modalBody
       };
 
-
       let dialogRef = this.dialog.open(MatDialogComponent, {
         data: eventData
       });
-
 
     }
     else {

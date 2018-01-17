@@ -76,9 +76,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
 
-
   getAlbum(tabId: number) {
-
 
     if (isPlatformBrowser(this.platformId)) {
 
@@ -94,10 +92,6 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
     } else {
 
       console.log('In ', this.platformId ,' mode');
-
-
-
-
     }
 
 
