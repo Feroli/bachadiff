@@ -29,7 +29,7 @@ export class FacebookEventsService {
   private facebookAlbumPhotosUrl: string;
   private albumId: number;
   private pageId = 'Bachadiff'
-  private accessToken = `EAAZARnD23eboBAIiiXBt0ACukutbu4T6gUXytLbfmrYd8Y2oMhdbuVMlhqLcVh4HcjZByVtaxKAXh25Oev36XVq7foFjaPkzQ2kDr5gZAAuKbZCQB4ZAkey8nTi895Tj7GTYFVT2cZBUnSpYbAgwIaTmoFgh0qGKyScYpbKdWOzgZDZD`;
+  private accessToken = `EAAZARnD23eboBACEetQ2zFT0nIfZCVzuZAJ0EzPxZCiM3wnmbZCOzMIgGwe0ZB5RIvh5mPWB6HmCGSZCducc5djpIVQe5ZCeZAoGLRP7yZBxNxtAAGd6Jfq1osBCZA9CZABm7U03Wwut6ZACETADZBZCt9ZCul3KKmeSmxqL1TSFe9NgKirISgZDZD`;
 
   private colors: any = {
     red: {
