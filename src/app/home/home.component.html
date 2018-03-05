@@ -1,4 +1,4 @@
-<div>
+<div style="">
   <h1 class="mat-display-1" id=main-question>{{question}}</h1>
 
   <p class="answer">{{answer}}</p>
@@ -7,5 +7,8 @@
     <i class="material-icons mat-elevation-z2">expand_more</i>
   </mat-icon>
 
+  <div class="month-theme" *ngFor="let flowerItem of flower">
+    <img src={{flowerItem}} alt="">
+  </div>
 
 </div>

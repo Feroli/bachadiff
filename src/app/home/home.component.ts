@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   question: string;
   answer: string;
-
+  flower: String[];
 
 
   constructor(private router: Router, meta: Meta, title: Title) {
@@ -40,9 +40,22 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/about');
   };
 
+
+
+
+
   ngOnInit() {
-    this.question = "What is Bachata?"
-    this.answer = "A social dance not a choreography"
+    this.question = "What is Bachata?";
+    this.answer = "A social dance not a choreography";
+
+    this.flower = [];
+    for (let i = 0; i <= 1; i++) {
+    this.flower.push("../../assets/daffodils.png");
+
+    }
+
+
+
   }
 
 }
