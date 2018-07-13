@@ -29,7 +29,7 @@ export class FacebookEventsService {
   private facebookAlbumPhotosUrl: string;
   private albumId: number;
   private PAGE_ID = 'Bachadiff';
-  private ACCESS_TOKEN = `access_token=EAAZARnD23eboBAMpA08deHEDiTiUSpejiiqteIcIjirTykZBIl020CZAQCK7hDKFHqx5VqqdZCXoPBZBvAmuZCuZBSMHVcF5wErnODAyJyLOUN6dPQo3mMr50PNewCeHHih9WJ12hsK2eCI4R4I4S2JxG6ZCPzGXkndUDZAayNFZBofrr0MirlHTrU3EkZCgX7D0rBIwBJ1YmHFjwZDZD`;
+  private ACCESS_TOKEN = `access_token=EAAZARnD23eboBAAZBcd6FZCNqxIN3tIqf5oFZBansdwYDAteRzIxWgRxeFFSwyrcEEZCin1NCMYwqaxr9ZBxA7hzabH4i8uAEBXNA1ZBtFTGZAXydg8SBzSFzYDz9s6Ec1ChQfIaYZB1T0hja2t2GyAqFOaLTsk2lOUQfig3w8MIwxAZDZD`;
   private LINK = 'https://graph.facebook.com/v3.0/Bachadiff/';
   private EVENTS_QUERY = 'events'
   private VIDEO_QUERY = 'videos?limit=3&fields=source';
