@@ -3,7 +3,7 @@
   <h2 class="mat-display-3 page-title">Gallery</h2>
   <hr />
 
-  <div class="media_container">
+  <!-- <div class="media_container">
 
     <div class="" *ngFor="let vid of bachataVidsArray; let i = index">
 
@@ -12,7 +12,7 @@
       </video>
     </div>
 
-  </div>
+  </div> -->
 
   <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Pictures of our Cardiff Bachata Classes</h5>
   <hr />
@@ -20,30 +20,53 @@
   <!-- The Modal -->
 
   <div style="text-align: center;">
-    <a mat-raised-button (click)="leftTab()">
+    <a mat-raised-button (click)="leftTab(CLASS_ALBUM)">
       <mat-icon color="accent">navigate_before</mat-icon>
     </a>
 
-    <a mat-raised-button (click)="rightTab()" >
+    <a mat-raised-button (click)="rightTab(CLASS_ALBUM)" >
       <mat-icon color="accent">navigate_next</mat-icon>
     </a>
   </div>
 
+  <!-- Event pics -->
   <mat-tab-group mat-stretch-tabs class="tab-group" color="accent">
-    <mat-tab [disabled]="true" *ngFor="let header of bachataAlbumHeaderNames" label="{{header.name}}" class="tab-content" id="album-title">
+    <mat-tab [disabled]="true" *ngFor="let i of eventPicsIterator" label="Bachadiff Cardiff Class" class="tab-content" id="album-title">
       <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
 
-        <div *ngFor="let image of bachataPicsArray; let i = index">
+        <div *ngFor="let image of eventAlbum; let i = index">
 
-          <a (click)="openPic(i)">
-            <img flex (mouseenter)="mouseEnter($event, i)"  [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.id}}" (mouseleave)="mouseLeave($event)"
-              class="gallery_pic mat-elevation-z2" src="{{image.image}}" alt="Bachadiff Cardiff Bachata class picture of people enjoying the dance"/>
+          <a (click)="openEventPic(i)">
+            <img flex (mouseenter)="mouseEnter($event, i)"  [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.src+i}}" (mouseleave)="mouseLeave($event)"
+              class="gallery_pic mat-elevation-z2" src="{{image.src}}" alt="{{image.caption}}"/>
             </a>
         </div>
       </div>
     </mat-tab>
   </mat-tab-group>
 
+  <div style="text-align: center;">
+    <a mat-raised-button (click)="leftTab(EVENT_ALBUM)">
+      <mat-icon color="accent">navigate_before</mat-icon>
+    </a>
 
+    <a mat-raised-button (click)="rightTab(EVENT_ALBUM)" >
+      <mat-icon color="accent">navigate_next</mat-icon>
+    </a>
+  </div>
+<!-- Class Pics -->
+  <mat-tab-group mat-stretch-tabs class="tab-group" color="accent">
+    <mat-tab [disabled]="true" *ngFor="let i of classPicsIterator" label="Bachadiff Cardiff Class" class="tab-content" id="album-title">
+      <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
 
+        <div *ngFor="let image of classAlbum; let i = index">
+
+          <a (click)="openEventPic(i)">
+            <img flex (mouseenter)="mouseEnter($event, i)"  [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.src+i}}" (mouseleave)="mouseLeave($event)"
+              class="gallery_pic mat-elevation-z2" src="{{image.src}}" alt="{{image.caption}}"/>
+            </a>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
