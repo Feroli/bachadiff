@@ -8,7 +8,6 @@ import {
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import { FacebookPhoto } from '../interfaces/facebook-photo';
 import { FacebookVideo } from '../interfaces/facebook-video';
 
 import { format, compareAsc, parse } from 'date-fns';
@@ -60,8 +59,6 @@ export class FacebookEventsService {
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object, private transferState: TransferState) {
 
-    this.ALBUM_PHOTOS_KEY = makeStateKey('albumPhotos');
-
     this.facebookEventsUrl = `${this.LINK}${this.EVENTS_QUERY}?${this.ACCESS_TOKEN}`;
 
     this.facebookVideosUrl = `${this.LINK}${this.VIDEO_QUERY}&${this.ACCESS_TOKEN}`;
@@ -89,95 +86,6 @@ export class FacebookEventsService {
         }
 
         return facebookVideos;
-      })
-  }
-
-  getBachadiffAlbumNames(): Observable<object[]> {
-
-    let albumHeaderNames: object[] = [];
-    let albumHeader: object;
-    return this.http.get(this.facebookAlbumNamesUrl)
-      .map(res => {
-
-        let facebookHeaderData = res['data'];
-
-        for (let header of facebookHeaderData) {
-
-          if (header['name'] === 'Profile Pictures' || header['name'] === 'Cover Photos' || header['name'] === "Mobile Uploads") {
-            continue;
-          } else {
-
-            albumHeaderNames.push(
-              albumHeader = {
-                'name': header['name'].split('|')[1],
-                'description': header['description'],
-                'id': header['id']
-              }
-            );
-          }
-
-        }
-
-        return albumHeaderNames;
-
-      })
-  };
-
-  getBachadiffAlbumPhotos(albumId: number): Observable<FacebookPhoto[]> {
-
-    this.albumId = albumId;
-    this.facebookAlbumPhotosUrl = `${this.LINK}${this.PHOTOS20_QUERY}&${this.ACCESS_TOKEN}`;
-
-    let facebookPhotos: FacebookPhoto[] = [];
-    let facebookPhoto: FacebookPhoto;
-    return this.http.get(this.facebookAlbumPhotosUrl)
-      .map(res => {
-
-        let facebookPhotoData = res['data'];
-
-        for (let photo of facebookPhotoData) {
-
-          facebookPhotos.push(
-            facebookPhoto = {
-              id: photo.id,
-              image: photo.images[3].source,
-              link: photo.link,
-              height: photo.height,
-              width: photo.width
-            })
-        }
-        this.transferState.set(this.ALBUM_PHOTOS_KEY, res);
-        return facebookPhotos;
-
-      });
-
-  }
-
-  getBachadiffFacebookLastClassPictures(): Observable<FacebookPhoto[]> {
-
-    let facebookPhotos: FacebookPhoto[] = [];
-    let facebookPhoto: FacebookPhoto;
-    return this.http.get(this.facebookPhotosUrl)
-      .map(res => {
-
-
-        let facebookPhotoData = res['data'][0]['photos']['data'];
-
-
-
-
-        for (let photo of facebookPhotoData) {
-
-          facebookPhotos.push(
-            facebookPhoto = {
-              id: photo.id,
-              image: photo.images[3].source,
-              link: photo.link,
-              height: photo.height,
-              width: photo.width
-            })
-        }
-        return facebookPhotos;
       })
   }
 

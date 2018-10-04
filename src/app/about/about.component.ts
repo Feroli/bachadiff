@@ -62,9 +62,9 @@ export class AboutComponent implements OnInit {
     this.profilePictures = [
       {
         id: uuid(),
-        image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/ferPlaya.jpg',
+        image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/IMG_0937.jpg',
         title: 'Fernando Ania',
-        description: 'Bachata and Salsa Lover, Beatboxer and a great cook!',
+        description: 'Dominican born Bachata Stars U.K Finalist, and beatboxer .',
         link: this.fernandoFacebookUrl
       },
       {

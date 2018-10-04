@@ -31,8 +31,8 @@ export class PhotosService {
   private PHOTOS20_QUERY = 'photos?limit=20&fields=images,id,link,height,width';
   private ALBUM_QUERY = 'photos?fields=images,id,link,height,width';
   private ALBUM_NAMES_QUERY = 'albums?limit=3&fields=description,name';
-  private CLASSES_URL = 'https://bachadiff-classes-service.herokuapp.com/class-pictures';
-  private EVENTS_URL = 'https://bachadiff-events-service.herokuapp.com/events-pictures';
+  private CLASSES_URL = 'https://bachadiff-classes-service.herokuapp.com/class-pictures/';
+  private EVENTS_URL = 'https://bachadiff-events-service.herokuapp.com/event-pictures/';
   private colors: any = {
     red: {
       primary: '#ad2121',
@@ -65,56 +65,37 @@ export class PhotosService {
 
   getBachadiffEventPhotos(): Observable<Photo[]> {
     let eventPhotos: Photo[] = [];
+    let eventPhoto: Photo;
 
     return this.http.get(this.eventPicsUrl)
-      .map(res => {
+      .map(res => res as Photo[])
+      .map(photos => {
 
-        let photoData = res['_embedded']['events'];
-
-        for (let photo of photoData) {
-
-          eventPhotos.push(
-            photo = {
-              id: photo['_link']['picture'].split('/').pop(),
-              link: photo.link,
-              height: photo.height,
-              width: photo.width,
-              title: photo.title,
-              caption: photo.caption
-            })
+        for (let photo of photos) {
+          eventPhotos.push(photo);
         }
-        this.transferState.set(this.ALBUM_PHOTOS_KEY, res);
+
+        this.transferState.set(this.ALBUM_PHOTOS_KEY, photos.length);
         return eventPhotos;
 
       });
-
   }
 
   getBachadiffClassesPhotos(): Observable<Photo[]> {
 
     let classPhotos: Photo[] = [];
 
-        return this.http.get(this.classPicsUrl)
-          .map(res => {
+    return this.http.get(this.classPicsUrl)
+      .map(res => res as Photo[])
+      .map(photos => {
+        for (let photo of photos) {
+          classPhotos.push(photo);
+        }
 
-            let photoData = res['_embedded']['events'];
+        this.transferState.set(this.ALBUM_PHOTOS_KEY, photos.length);
+        return classPhotos;
 
-            for (let photo of photoData) {
-
-              classPhotos.push(
-                photo = {
-                  id: photo['_link']['picture'].split('/').pop(),
-                  link: photo.link,
-                  height: photo.height,
-                  width: photo.width,
-                  title: photo.title,
-                  caption: photo.caption
-                })
-            }
-            this.transferState.set(this.ALBUM_PHOTOS_KEY, res);
-            return classPhotos;
-
-          });
+      });
   }
 
 

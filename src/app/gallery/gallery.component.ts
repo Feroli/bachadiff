@@ -112,7 +112,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.selectedTabIndex = 0;
     }
     else {
-    this.selectedTabIndex++;
+      this.selectedTabIndex++;
 
     }
     this.getAlbum(this.selectedTabIndex, albumType);
@@ -127,8 +127,9 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
             this.currentTabId = tabId;
             this.classPics = res;
             this.createAlbum(this.classPics, albumType);
-            this.classPicCounter = this.classAlbum.length/20; 
-            this.eventPicsIterator = new Array(this.classPicCounter).fill(1)
+            // this.classPicCounter = this.classAlbum.length/20; 
+            // this.classPicsIterator = new Array(this.classPicCounter).fill(1);
+            // console.log("how many tabs for the classes: ", this.classPicsIterator)
                        
           });
 
@@ -137,8 +138,8 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
             this.currentTabId = tabId;
             this.eventPics = res;
             this.createAlbum(this.eventPics, albumType);
-            this.classPicCounter = this.eventAlbum.length/20;
-            this.classPicsIterator = new Array(this.classPicCounter).fill(1)            
+            // this.eventPicCounter = this.eventAlbum.length/20;
+            // this.eventPicsIterator = new Array(this.eventPicCounter).fill(1)            
           });
         }
     } else {
@@ -210,7 +211,8 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.state.set(CLASS_PICTURES_KEY, res as any);
       this.createAlbum(this.classPics, this.CLASS_ALBUM);
       this.classPicCounter = this.classAlbum.length/20;
-      this.eventPicsIterator = new Array(this.classPicCounter).fill(1)            
+      this.classPicsIterator = new Array(this.classPicCounter).fill(1)  
+      console.log("iterator at init", this.classPicsIterator);          
       
     });
 
@@ -219,7 +221,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.state.set(EVENT_PICTURES_KEY, res as any);
       this.createAlbum(this.eventPics, this.EVENT_ALBUM);
       this.eventPicCounter = this.eventAlbum.length/20;
-      this.classPicsIterator = new Array(this.classPicCounter).fill(1)                  
+      this.eventPicsIterator = new Array(this.eventPicCounter).fill(1)                  
     });
 
 

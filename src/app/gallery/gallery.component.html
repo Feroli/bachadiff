@@ -14,12 +14,10 @@
 
   </div> -->
 
-  <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Pictures of our Cardiff Bachata Classes</h5>
-  <hr />
-
+  <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Bachadiff Bachata Stars Wales</h5>
   <!-- The Modal -->
 
-  <div style="text-align: center;">
+  <!-- <div style="text-align: center;">
     <a mat-raised-button (click)="leftTab(CLASS_ALBUM)">
       <mat-icon color="accent">navigate_before</mat-icon>
     </a>
@@ -27,11 +25,12 @@
     <a mat-raised-button (click)="rightTab(CLASS_ALBUM)" >
       <mat-icon color="accent">navigate_next</mat-icon>
     </a>
-  </div>
+  </div> -->
 
+  
   <!-- Event pics -->
   <mat-tab-group mat-stretch-tabs class="tab-group" color="accent">
-    <mat-tab [disabled]="true" *ngFor="let i of eventPicsIterator" label="Bachadiff Cardiff Class" class="tab-content" id="album-title">
+    <mat-tab [disabled]="true" *ngFor="let i of eventPicsIterator" label="Bachadiff Cardiff Competition" class="tab-content" id="album-title">
       <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
 
         <div *ngFor="let image of eventAlbum; let i = index">
@@ -45,6 +44,8 @@
     </mat-tab>
   </mat-tab-group>
 
+  <!-- <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Bachadiff Cardiff Bachata Classes</h5>
+  <hr />
   <div style="text-align: center;">
     <a mat-raised-button (click)="leftTab(EVENT_ALBUM)">
       <mat-icon color="accent">navigate_before</mat-icon>
@@ -53,7 +54,11 @@
     <a mat-raised-button (click)="rightTab(EVENT_ALBUM)" >
       <mat-icon color="accent">navigate_next</mat-icon>
     </a>
-  </div>
+  </div> -->
+
+  <h5 class="mat-display-1" style="text-align: center; margin-top: 3%;">Bachadiff Weekly Class Pics</h5>
+  
+  
 <!-- Class Pics -->
   <mat-tab-group mat-stretch-tabs class="tab-group" color="accent">
     <mat-tab [disabled]="true" *ngFor="let i of classPicsIterator" label="Bachadiff Cardiff Class" class="tab-content" id="album-title">

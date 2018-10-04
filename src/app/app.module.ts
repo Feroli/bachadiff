@@ -37,6 +37,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AgmCoreModule } from '@agm/core';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FacebookEventsService } from './services/facebook-events.service';
+import { PhotosService } from './services/photos.service';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -102,7 +103,7 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
     MatDialogModule
 
   ],
-  providers: [FacebookEventsService, GoogleAnalyticsEventsService],
+  providers: [FacebookEventsService, PhotosService, GoogleAnalyticsEventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

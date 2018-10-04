@@ -7,6 +7,7 @@ class eventPhoto implements Photo {
     height: number;
     title: string;
     caption: string
+    etag: string;
 
     constructor() {}
 
@@ -34,6 +35,10 @@ class eventPhoto implements Photo {
         this.caption = caption;
     }
 
+    public setEtag(etag: string): void {
+        this.etag = etag;
+    }
+
     public getId(): number {
         return this.id;
     }
@@ -53,6 +58,10 @@ class eventPhoto implements Photo {
 
     public getCaption(): string {
         return this.caption;
+    }
+
+    public getEtag(): string {
+        return this.etag;
     }
     
   }
