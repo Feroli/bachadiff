@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.bachadiff.co.uk/</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/home</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/about</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/classes</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/events</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/gallery</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.bachadiff.co.uk/contactus</loc>
+  <lastmod>2018-10-05T15:39:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
