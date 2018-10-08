@@ -38,6 +38,7 @@ import { AgmCoreModule } from '@agm/core';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FacebookEventsService } from './services/facebook-events.service';
 import { PhotosService } from './services/photos.service';
+import { VideoService } from './video.service/video-service';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { GoogleAnalyticsEventsService } from './services/google-analytics-events.service';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -103,7 +104,7 @@ import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
     MatDialogModule
 
   ],
-  providers: [FacebookEventsService, PhotosService, GoogleAnalyticsEventsService],
+  providers: [FacebookEventsService, PhotosService, VideoService, GoogleAnalyticsEventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

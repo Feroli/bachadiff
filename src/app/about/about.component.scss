@@ -15,18 +15,20 @@ mat-card {
 
 }
 
+mat-card-actions {
+  margin-top: -1em;
+}
+
 
 .profile_card {
   width: 200px;
   height: 350px;
-
-
   margin-bottom: 2em;
 
 }
 
 .vision_container {
-  max-width: 80%;
+  max-width: 50% !important;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -53,4 +55,10 @@ mat-card {
 .findUs_container {
   margin-left: auto;
   margin-right: auto;
+}
+
+.bachadiff_vid {
+  max-width: 100%;
+  max-height: 12em;
+  margin: 2em;
 }
