@@ -2,6 +2,7 @@ import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ProfilePicture } from '../interfaces/profile-picture';
 import { v4 as uuid } from 'uuid';
+import { VideoService } from '../video.service/video-service'
 
 declare var $;
 @Component({
@@ -16,10 +17,11 @@ export class AboutComponent implements OnInit {
   private jasonFacebookUrl = 'https://www.facebook.com/jasondjjay.bachata.7';
 
   profilePictures: ProfilePicture[];
+  bachataVideos = [];
 
   visionText: string;
 
-  constructor(meta: Meta, title: Title) {
+  constructor(meta: Meta, title: Title, private videoService: VideoService) {
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff About Page');
 
     let description = `This is the bachadiff welcome page for Cardiff bachata lovers. Specialised in the Cardiff Bachata/latin Scene
@@ -55,16 +57,20 @@ export class AboutComponent implements OnInit {
     // })
   }
 
+  getVideos(artist: string) {
+    this.bachataVideos = this.videoService.getVideos(artist);
+  }
+
   ngOnInit() {
 
-
+    this.bachataVideos = [];
 
     this.profilePictures = [
       {
         id: uuid(),
         image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/IMG_0937.jpg',
         title: 'Fernando Ania',
-        description: 'Dominican born Bachata Stars U.K Finalist, and beatboxer .',
+        description: 'Dominican born, Bachata Stars U.K Finalist and performer, focus is body movement.',
         link: this.fernandoFacebookUrl
       },
       {
@@ -80,7 +86,7 @@ export class AboutComponent implements OnInit {
         id: uuid(),
         image: 'https://s3.eu-west-2.amazonaws.com/bachadiff-assets/jason.jpg',
         title: 'DJ JAY',
-        description: 'Crazy bachata and salsa guy, known as DJ Jay behind the deck',
+        description: 'Crazy bachata and salsa artist, known as DJ Jay behind the deck.',
         link: this.jasonFacebookUrl
 
 
