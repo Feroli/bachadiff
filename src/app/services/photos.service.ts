@@ -63,6 +63,39 @@ export class PhotosService {
 
   }
 
+  getPhotos(artist: string): Photo[] {
+    
+    let photos: Photo[] = [];
+
+    if (artist === "Fernando Ania") {
+        photos = [
+            {
+                id: 124, link: "https://s3.eu-west-2.amazonaws.com/bachadiff-profile/bachataStars.jpg", width: 123, height: 123, title: "string", caption: "string", etag: "string"
+            },
+            {
+                id: 125, link: "https://s3.eu-west-2.amazonaws.com/bachadiff-profile/IMG_0944.jpg", width: 123, height: 123, title: "string", caption: "string", etag: "string"
+            },
+            {
+              id: 126, link: "https://s3.eu-west-2.amazonaws.com/bachadiff-profile/labonita.jpg", width: 123, height: 123, title: "string", caption: "string", etag: "string"
+            },
+            {
+              id: 126, link: "https://s3.eu-west-2.amazonaws.com/bachadiff-assets/bachadiffClassPic.jpg", width: 123, height: 123, title: "string", caption: "string", etag: "string"
+            },
+        ];
+    } else if (artist == "Daniel") {
+         photos = [
+            {
+                id: 123, link: "https://i.ytimg.com/vi/ViYDsPp6iAE/maxresdefault.jpg", width: 123, height: 123, title: "string", caption: "string", etag: "string"
+            }
+        ];
+    } else {
+        photos =  [];
+    }
+
+    this.transferState.set(this.ALBUM_PHOTOS_KEY, photos.length);  
+    return photos;
+  }
+
   getBachadiffEventPhotos(): Observable<Photo[]> {
     let eventPhotos: Photo[] = [];
     let eventPhoto: Photo;

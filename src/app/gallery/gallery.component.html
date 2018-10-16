@@ -64,10 +64,10 @@
     <mat-tab [disabled]="true" *ngFor="let i of classPicsIterator" label="Bachadiff Cardiff Class" class="tab-content" id="album-title">
       <div class="photos" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center stretch">
 
-        <div *ngFor="let image of classAlbum; let i = index">
+        <div *ngFor="let image of classAlbum; let k = index">
 
-          <a (click)="openEventPic(i)">
-            <img flex (mouseenter)="mouseEnter($event, i)"  [ngClass]="hoveredId === i ? depth5: depth1" id="{{image.src+i}}" (mouseleave)="mouseLeave($event)"
+          <a (click)="openClassPic(k)">
+            <img flex (mouseenter)="mouseEnter($event, k)"  [ngClass]="hoveredId === k ? depth5: depth1" id="{{image.src+k}}" (mouseleave)="mouseLeave($event)"
               class="gallery_pic mat-elevation-z2" src="{{image.src}}" alt="{{image.caption}}"/>
             </a>
         </div>

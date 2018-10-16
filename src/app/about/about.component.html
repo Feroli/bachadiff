@@ -5,30 +5,42 @@
   <div class="container">
 
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch" class="row-example">
-            <mat-card class="profile_card" *ngFor="let profilePicture of profilePictures">
-                <mat-card-header>
-                  <mat-card-title>{{profilePicture.title}}</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="{{profilePicture.image}}" alt="Bachadiff Profile Photo of {{profilePicture.title}}">
-                <mat-card-content>
-                  <p>
-                    {{profilePicture.description}}
-                  </p>
-                </mat-card-content>
-                <mat-card-actions flxLayout="column" fxLayoutAlign="center right">
-                  <button mat-button color="accent"(click)=goToFacebook(profilePicture.link)>Facebook</button>
-                  <p class="active">|</p>
-                  <button mat-button color="accent"(click)=getVideos(profilePicture.title)>videos</button>                  
-                </mat-card-actions>
-            </mat-card>
+      <mat-card class="profile_card" *ngFor="let profilePicture of profilePictures">
+        <mat-card-header>
+          <mat-card-title>{{profilePicture.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{profilePicture.image}}" alt="Bachadiff Profile Photo of {{profilePicture.title}}">
+        <mat-card-content>
+          <p>
+            {{profilePicture.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions flxLayout="column" fxLayoutAlign="center right">
+          <button mat-button color="accent" (click)=goToFacebook(profilePicture.link)>Facebook</button>
+          <p class="active">|</p>
+          <button mat-button color="accent" (click)=getProfile(profilePicture.title)>More</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-<div class="vision_container">
-     <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
-      <video *ngFor="let vid of bachataVideos; let i = index" class="responsive-video bachadiff_vid mat-elevation-z3 " (click)="play()" #videoPlayer id="bachadiff-vid-{{i}}" controls>
-        <source src="{{vid.source}}" type="video/mp4">
-      </video>
-</div>
+    <div class="vision_container">
 
-  </div>
+      <h1 style="text-align: center">{{media}}</h1>
+        <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
+            
+        <div *ngFor="let image of photos; let k = index">
+          <a (click)="openEventPic(k)" href="{{image.link}}">
+              <img flex (mouseenter)="mouseEnter($event, k)"  [ngClass]="hoveredId === k ? depth5: depth1" id="{{image.link+k}}" (mouseleave)="mouseLeave($event)"
+                      class="pic mat-elevation-z2" src="{{image.link}}" alt="{{image.caption}}"/>
+            </a>
+        </div>
+        </div>
+      <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
+        <video *ngFor="let vid of bachataVideos; let i = index" class="responsive-video bachadiff_vid mat-elevation-z3 " (click)="play()"
+          #videoPlayer id="bachadiff-vid-{{i}}" controls>
+          <source src="{{vid.source}}" type="video/mp4">
+        </video>
+      </div>
+
+    </div>
   </div>
 </div>

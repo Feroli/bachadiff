@@ -30,8 +30,8 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
   @ViewChild('videoPlayer') videoPlayer: ElementRef;
   @ViewChild('albumId') albumId: ElementRef
 
-  classAlbum: Array<IAlbum>
-  eventAlbum: Array<IAlbum>
+  classAlbum: Array<IAlbum>;
+  eventAlbum: Array<IAlbum>;
   EVENT_ALBUM = 'EVENT_ALBUM';
   CLASS_ALBUM = 'CLASS_ALBUM';
   eventPicsIterator = [];
@@ -211,9 +211,7 @@ export class GalleryComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.state.set(CLASS_PICTURES_KEY, res as any);
       this.createAlbum(this.classPics, this.CLASS_ALBUM);
       this.classPicCounter = this.classAlbum.length/20;
-      this.classPicsIterator = new Array(this.classPicCounter).fill(1)  
-      console.log("iterator at init", this.classPicsIterator);          
-      
+      this.classPicsIterator = new Array(this.classPicCounter).fill(1)        
     });
 
     this.photosService.getBachadiffEventPhotos().subscribe(res => {
