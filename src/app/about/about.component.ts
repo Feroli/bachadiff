@@ -3,8 +3,16 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ProfilePicture } from '../interfaces/profile-picture';
 import { v4 as uuid } from 'uuid';
 import { VideoService } from '../video.service/video-service'
+import { PhotosService } from '../services/photos.service'
+import { isPlatformServer, isPlatformBrowser } from '@angular/common';
+import { Lightbox, IAlbum } from 'angular2-lightbox';
+import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { Photo } from '../interfaces/photo';
+
 
 declare var $;
+const PHOTOS_KEY = makeStateKey('Photos');
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -12,16 +20,37 @@ declare var $;
 })
 export class AboutComponent implements OnInit {
 
+  
   private fernandoFacebookUrl = 'https://www.facebook.com/Fer0li';
   private danielFacebookUrl = 'https://www.facebook.com/daniel.chong.908';
   private jasonFacebookUrl = 'https://www.facebook.com/jasondjjay.bachata.7';
 
+  private FERNANDO_INTRO = 'Fernando Ania Born in Santo Domingo, capital of the Dominican republic, and 2nd place winner of Bachata Stars Wales. Fernando experienced sensual bachata for the first time when he arrived in London, where he could learn from world renowned dancers, and had access to some of the biggest congresses in the U.K. Here he developed his style as a sensual dancer with a Dominican "meneo". In addition to bachata he explored other music genres such as hip hop and salsa, building his foundation as a dancer. Fast forward a few years he moved to Cardiff and started teaching, with a strong emphasis social dancing, and the Dominican ideologies of bachata.';
+  private JSON_INTRO = '';
+  private DANIEL_INTRO = '';
+
+  intro: string;
+  
   profilePictures: ProfilePicture[];
   bachataVideos = [];
+  photos = [];
+  album: Array<IAlbum>;  
+  personalPictures: any;
 
+  hoveredId: number;
+  selectedTabIndex: number;
   visionText: string;
+  depth5 = 'z-depth-5';
+  depth1 = 'z-depth-1';
+  media = "";
 
-  constructor(meta: Meta, title: Title, private videoService: VideoService) {
+  constructor(meta: Meta, title: Title,
+    private videoService: VideoService,
+    private photoService: PhotosService,
+    private state: TransferState,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private lightbox: Lightbox) {
+
     title.setTitle('Bachadiff Bachata Dance Classes in Cardiff About Page');
 
     let description = `This is the bachadiff welcome page for Cardiff bachata lovers. Specialised in the Cardiff Bachata/latin Scene
@@ -51,19 +80,45 @@ export class AboutComponent implements OnInit {
     window.open(link, '_blank');
   };
 
-  findUs() {
-    // $('html, body').animate({
-    //   scrollTop: $('.vision_container').offset().top
-    // })
+  openEventPic(index) {
+    if (isPlatformBrowser(this.platformId)) {
+      // this.lightbox.open(this.album, index);
+      window.open(this.album[index]["link"], '_blank');
+
+    } else {
+      window.open(this.album[index]["link"], '_blank');
+    }
   }
 
-  getVideos(artist: string) {
+  mouseEnter(event: MouseEvent, id: number) {
+    this.hoveredId = id;
+    this.depth5 = event.type == 'mouseenter' ? 'mat-elevation-z7' : 'mat-elevation-z2';
+  }
+
+  mouseLeave(event: MouseEvent) {
+    this.depth1 = 'mat-elevation-z1';
+    this.depth5 = 'mat-elevation-z1';
+  }
+
+  getProfile(artist: string) {
+    if (artist === "Fernando Ania") {
+      this.intro = this.FERNANDO_INTRO
+    } else if (artist === "Daniel Chong") {
+      this.intro = this.DANIEL_INTRO
+    } else if (artist === "DJ JAY") {
+      this.intro = this.JSON_INTRO
+    } else { "" }
+
+    this.media = "Media";
+    this.photos = this.photoService.getPhotos(artist);
     this.bachataVideos = this.videoService.getVideos(artist);
   }
+
 
   ngOnInit() {
 
     this.bachataVideos = [];
+    this.personalPictures = this.state.get(PHOTOS_KEY, null as any);    
 
     this.profilePictures = [
       {

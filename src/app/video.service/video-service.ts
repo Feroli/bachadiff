@@ -2,6 +2,7 @@ import { Injectable, ViewChild, TemplateRef, PLATFORM_ID, Inject } from '@angula
 import { StateKey, makeStateKey, TransferState } from '@angular/platform-browser';
 import { isPlatformServer } from '@angular/common';
 import { Video } from  '../video.service/Video';
+import { Photo } from '../interfaces/photo';
 
 @Injectable()
 export class VideoService {
@@ -9,7 +10,6 @@ export class VideoService {
   private VIDEO_KEY: StateKey<number>;
 
   constructor( @Inject(PLATFORM_ID) private platformId: Object, private transferState: TransferState) {}
-
 
   getVideos(artist: string): Video[] {
 
