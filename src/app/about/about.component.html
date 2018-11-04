@@ -25,21 +25,26 @@
     <div class="vision_container">
 
       <h1 style="text-align: center">{{media}}</h1>
-        <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
-            
+      <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
+
         <div *ngFor="let image of photos; let k = index">
           <a (click)="openEventPic(k)" href="{{image.link}}">
               <img flex (mouseenter)="mouseEnter($event, k)"  [ngClass]="hoveredId === k ? depth5: depth1" id="{{image.link+k}}" (mouseleave)="mouseLeave($event)"
                       class="pic mat-elevation-z2" src="{{image.link}}" alt="{{image.caption}}"/>
             </a>
         </div>
-        </div>
+      </div>
       <div class="" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutAlign.xs="center stretch">
         <video *ngFor="let vid of bachataVideos; let i = index" class="responsive-video bachadiff_vid mat-elevation-z3 " (click)="play()"
           #videoPlayer id="bachadiff-vid-{{i}}" controls>
           <source src="{{vid.source}}" type="video/mp4">
         </video>
+        <iframe *ngIf="isFernando" class="mat-elevation-z3 " src="https://www.youtube.com/embed/UweBGqjdyMk?start=4" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+
+
+
 
     </div>
   </div>

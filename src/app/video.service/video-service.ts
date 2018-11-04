@@ -22,7 +22,7 @@ export class VideoService {
     }
     else {
         videos = [ 
-            {"id": "video1", "source": "https://s3.eu-west-2.amazonaws.com/bachadiff-videos/Fernando.mp4", "artist": artist, "caption": "amazing"}
+            {"id": "video1", "source": "https://s3.eu-west-2.amazonaws.com/bachadiff-videos/Fernando.mp4", "artist": artist, "caption": "amazing"},
         ];
     }
    

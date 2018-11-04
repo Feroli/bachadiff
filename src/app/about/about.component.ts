@@ -30,6 +30,7 @@ export class AboutComponent implements OnInit {
   private DANIEL_INTRO = '';
 
   intro: string;
+  isFernando: boolean = false;
   
   profilePictures: ProfilePicture[];
   bachataVideos = [];
@@ -103,10 +104,13 @@ export class AboutComponent implements OnInit {
   getProfile(artist: string) {
     if (artist === "Fernando Ania") {
       this.intro = this.FERNANDO_INTRO
+      this.isFernando = true;
     } else if (artist === "Daniel Chong") {
       this.intro = this.DANIEL_INTRO
+      this.isFernando = false
     } else if (artist === "DJ JAY") {
       this.intro = this.JSON_INTRO
+      this.isFernando = false      
     } else { "" }
 
     this.media = "Media";
